@@ -4,7 +4,7 @@ from pathlib import Path
 from google.adk.agents import Agent
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.5-pro"
 
 
 def read_dataset_file(filename: str = "") -> str:
@@ -32,7 +32,7 @@ def read_dataset_file(filename: str = "") -> str:
         return f"Data folder not found.\n\n{debug_info}"
 
     # List all dataset files (csv, json, parquet, etc.)
-    dataset_extensions = ["*.csv", "*.json", "*.parquet", "*.txt"]
+    dataset_extensions = ["*.csv"]
     dataset_files = []
     for ext in dataset_extensions:
         dataset_files.extend(data_folder.glob(ext))
@@ -70,24 +70,28 @@ summariser_agent = Agent(
     actionable summary of the most likely drift reasons.
     
     Workflow:
-    1. Review all information available in the state from previous agents (metadata, statistical analysis, etc.)
+    1. Review all information available in the state from previous agents, stored under the keys meta_info, drift_info, eda_info, and internet_info.
     2. Use the read_dataset_file() tool to access datasets if you need to verify specific patterns
-    3. Identify and rank the top 3-5 most probable root causes for the detected drift
+    3. Identify and rank the most probable root causes for the detected drift
     4. For each identified cause, provide:
        - Clear explanation of why this is a likely cause
        - Supporting evidence from the analysis
        - Confidence level (High/Medium/Low)
-    5. Suggest concrete next steps for investigation or remediation
+     If asked by the user for the next steps of remediation , only then provide specific recommendations for next steps to investigate or mitigate the drift based on your findings.
+    5. Compile your findings into a clear, structured summary.
+
     
     Your summary should be:
-    - Concise and focused on actionable insights
+    - Concise and focused 
     - Prioritized by likelihood and impact
-    - Backed by evidence from the data and analysis
-    - Include specific recommendations for next steps
+    - Backed by evidence from the internet_info key 
     
     Automatically call the read_dataset_file() tool if you need to verify findings.
     Let the user know what you're analyzing as you work through the data.
-    """,
+
+    DO NOT HALLUCINATE ANY INFORMATION OR MAKE UP ANY REASONS FOR DRIFT.
+    Only provide reasons that are backed by the information available in the state or the dataset itself.
+    Final output should be clear points summarising the reasons for drift and, if prompted, actionable next steps.""",
     description="Summarises drift detection analysis and provides actionable recommendations.",
     output_key="drift_summary",
     tools=[read_dataset_file],

@@ -1,0 +1,337 @@
+{
+  "is_drift": true,
+  "details": {
+    "total_amount": {
+      "tests": {
+        "ks": {
+          "result": {
+            "statistic": 0.41935483870967744,
+            "p_value": 0.007945718302533482,
+            "drift": true
+          },
+          "drift": true,
+          "weight": 0.3333333333333333,
+          "threshold": 0.05
+        },
+        "wasserstein": {
+          "result": {
+            "wasserstein_distance": 710224.472580645,
+            "wasserstein_distance_norm": 0.5271045152426479,
+            "drift": true
+          },
+          "drift": true,
+          "weight": 0.3333333333333333,
+          "threshold": 0.1
+        },
+        "psi": {
+          "result": {
+            "psi": 8.941493045898543,
+            "drift": true
+          },
+          "drift": true,
+          "weight": 0.3333333333333333,
+          "threshold": 0.2
+        }
+      },
+      "is_drift": true
+    }
+  },
+  "data_summary": {
+    "columns": [
+      "date",
+      "VendorID",
+      "passenger_count",
+      "trip_distance",
+      "RateCodeID",
+      "payment_type",
+      "fare_amount",
+      "extra",
+      "mta_tax",
+      "tip_amount",
+      "tolls_amount",
+      "improvement_surcharge",
+      "total_amount"
+    ],
+    "ref": {
+      "date": {
+        "mean": null,
+        "std": null,
+        "min": null,
+        "max": null,
+        "missing": 0,
+        "mode": "2015-01-01",
+        "unique": 31
+      },
+      "VendorID": {
+        "mean": 625702.6774193548,
+        "std": 117366.59510337318,
+        "min": 216686.0,
+        "max": 790972.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "passenger_count": {
+        "mean": 691525.9032258064,
+        "std": 132954.15728271526,
+        "min": 232108.0,
+        "max": 898122.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "trip_distance": {
+        "mean": 5535169.515806452,
+        "std": 8907870.780680755,
+        "min": 301167.02,
+        "max": 31510961.15,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "RateCodeID": {
+        "mean": 426433.32258064515,
+        "std": 80056.96841932296,
+        "min": 137925.0,
+        "max": 534378.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "payment_type": {
+        "mean": 570295.6774193548,
+        "std": 104728.60027085473,
+        "min": 188248.0,
+        "max": 718032.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "fare_amount": {
+        "mean": 4896293.075483871,
+        "std": 940118.1630978973,
+        "min": 1260877.79,
+        "max": 5913495.1,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "extra": {
+        "mean": 126782.06806451612,
+        "std": 42699.0497288737,
+        "min": 41615.56,
+        "max": 185033.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "mta_tax": {
+        "mean": 204723.46774193548,
+        "std": 38876.72127742074,
+        "min": 67598.0,
+        "max": 259091.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "tip_amount": {
+        "mean": 762394.9748387098,
+        "std": 717847.3620190235,
+        "min": 168647.03,
+        "max": 4556644.47,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "tolls_amount": {
+        "mean": 100140.56838709678,
+        "std": 23704.651656949263,
+        "min": 10346.94,
+        "max": 127885.06,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "improvement_surcharge": {
+        "mean": 116444.71935483869,
+        "std": 32282.683814633703,
+        "min": 40624.8,
+        "max": 155951.1,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "total_amount": {
+        "mean": 6213401.146451613,
+        "std": 1369680.0056256377,
+        "min": 1620325.23,
+        "max": 10000911.64,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      }
+    },
+    "cur": {
+      "date": {
+        "mean": null,
+        "std": null,
+        "min": null,
+        "max": null,
+        "missing": 0,
+        "mode": "2016-01-01",
+        "unique": 31
+      },
+      "VendorID": {
+        "mean": 540073.7741935484,
+        "std": 110244.62727005783,
+        "min": 119845.0,
+        "max": 667792.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "passenger_count": {
+        "mean": 587860.9354838709,
+        "std": 120739.21834514129,
+        "min": 132039.0,
+        "max": 750773.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "trip_distance": {
+        "mean": 1635394.339032258,
+        "std": 1940521.0858947253,
+        "min": 216758.16,
+        "max": 9585945.41,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "RatecodeID": {
+        "mean": 365678.67741935485,
+        "std": 74735.06002066548,
+        "min": 81050.0,
+        "max": 448442.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "payment_type": {
+        "mean": 474109.1612903226,
+        "std": 95859.87625177935,
+        "min": 107443.0,
+        "max": 586656.0,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "fare_amount": {
+        "mean": 4393327.954516129,
+        "std": 894904.4714674513,
+        "min": 932088.7,
+        "max": 5313532.83,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "extra": {
+        "mean": 110150.71258064517,
+        "std": 38272.804991201694,
+        "min": 23797.0,
+        "max": 159200.72,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "mta_tax": {
+        "mean": 175097.45258064516,
+        "std": 36314.44324843767,
+        "min": 38794.0,
+        "max": 216846.95,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "tip_amount": {
+        "mean": 615943.0325806452,
+        "std": 139847.6659801476,
+        "min": 132060.23,
+        "max": 763453.71,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "tolls_amount": {
+        "mean": 103208.8748387097,
+        "std": 25709.265214594765,
+        "min": 8298.93,
+        "max": 133665.85,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "improvement_surcharge": {
+        "mean": 105453.29451612903,
+        "std": 21848.827127056167,
+        "min": 23396.4,
+        "max": 130474.8,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      },
+      "total_amount": {
+        "mean": 5503176.673870969,
+        "std": 1134871.4556343162,
+        "min": 1162798.76,
+        "max": 6628250.16,
+        "missing": 0,
+        "mode": null,
+        "unique": null
+      }
+    }
+  },
+  "reference_meta": {
+    "shape": [
+      31,
+      13
+    ],
+    "columns": [
+      "date",
+      "VendorID",
+      "passenger_count",
+      "trip_distance",
+      "RateCodeID",
+      "payment_type",
+      "fare_amount",
+      "extra",
+      "mta_tax",
+      "tip_amount",
+      "tolls_amount",
+      "improvement_surcharge",
+      "total_amount"
+    ]
+  },
+  "current_meta": {
+    "shape": [
+      31,
+      13
+    ],
+    "columns": [
+      "date",
+      "VendorID",
+      "passenger_count",
+      "trip_distance",
+      "RatecodeID",
+      "payment_type",
+      "fare_amount",
+      "extra",
+      "mta_tax",
+      "tip_amount",
+      "tolls_amount",
+      "improvement_surcharge",
+      "total_amount"
+    ]
+  },
+  "html_report_error": "'dict object' has no attribute 'RateCodeID'"
+}

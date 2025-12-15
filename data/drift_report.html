@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Drift Report - General Mills</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        /* General Mills Brand Colors */
+        :root {
+            --gm-primary-blue: #005BAA;
+            --gm-secondary-blue: #0073E6;
+            --gm-accent-yellow: #FDB813;
+            --gm-light-yellow: #FFF5CC;
+            --gm-light-gray: #F7F8FA;
+            --gm-medium-gray: #E5E7EB;
+            --gm-dark-gray: #374151;
+            --gm-text-dark: #1F2937;
+            --gm-success-green: #10B981;
+            --gm-warning-red: #EF4444;
+            --gm-success-light: #D1FAE5;
+            --gm-warning-light: #FEE2E2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--gm-light-gray);
+            color: var(--gm-text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--gm-primary-blue) 0%, var(--gm-secondary-blue) 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--gm-accent-yellow);
+        }
+
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--gm-primary-blue);
+        }
+
+        .status-badge {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-drift {
+            background-color: var(--gm-warning-light);
+            color: var(--gm-warning-red);
+            border: 2px solid var(--gm-warning-red);
+        }
+
+        .status-no-drift {
+            background-color: var(--gm-success-light);
+            color: var(--gm-success-green);
+            border: 2px solid var(--gm-success-green);
+        }
+
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview-table th {
+            background: var(--gm-primary-blue);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .overview-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gm-medium-gray);
+            vertical-align: middle;
+        }
+
+        .overview-table tr:hover {
+            background-color: var(--gm-light-gray);
+        }
+
+        .column-section {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .column-header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--gm-accent-yellow);
+        }
+
+        .column-header.drift {
+            background: linear-gradient(135deg, var(--gm-warning-light) 0%, #FFEAEA 100%);
+            border-left: 6px solid var(--gm-warning-red);
+        }
+
+        .column-header.no-drift {
+            background: linear-gradient(135deg, var(--gm-success-light) 0%, #EAFAF1 100%);
+            border-left: 6px solid var(--gm-success-green);
+        }
+
+        .column-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gm-primary-blue);
+        }
+
+        .column-status {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .column-status.drift {
+            background-color: var(--gm-warning-red);
+            color: white;
+        }
+
+        .column-status.no-drift {
+            background-color: var(--gm-success-green);
+            color: white;
+        }
+
+        .tests-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .tests-table th {
+            background: var(--gm-primary-blue);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .tests-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gm-medium-gray);
+            vertical-align: top;
+        }
+
+        .tests-table tr:not(.chart-row):nth-child(even) {
+            background-color: #FAFBFC;
+        }
+
+        .test-name {
+            font-weight: 600;
+            color: var(--gm-primary-blue);
+            font-size: 1.05rem;
+        }
+
+        .test-result {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .test-result.drift {
+            background-color: var(--gm-warning-red);
+            color: white;
+        }
+
+        .test-result.no-drift {
+            background-color: var(--gm-success-green);
+            color: white;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--gm-dark-gray);
+        }
+        
+        .chart-cell {
+            padding: 0 !important; /* Override default padding for smooth animation */
+        }
+        
+        .chart-content-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .chart-content-wrapper.is-open {
+            max-height: 500px; /* A large value to allow content to expand */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .chart-container {
+            background: #eef2f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gm-dark-gray);
+            font-style: italic;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metric-card {
+            background: var(--gm-light-yellow);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gm-accent-yellow);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--gm-dark-gray);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value-large {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gm-primary-blue);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gm-primary-blue);
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .expand-btn {
+            background: none;
+            border: 2px solid var(--gm-accent-yellow);
+            color: var(--gm-primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            background: var(--gm-accent-yellow);
+            color: var(--gm-primary-blue);
+        }
+        .expand-btn.is-active {
+            background-color: var(--gm-accent-yellow);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Data Drift Analysis Report</h1>
+        <div class="subtitle">General Mills - Data Quality Monitoring</div>
+    </div>
+
+    <div class="container">
+        <!-- Summary Section -->
+        <div class="summary-card">
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+                <div style="flex: 1;">
+                    <button class="expand-btn" data-target="#data-summary-box">Compare Data Summaries</button>
+                    <div class="chart-content-wrapper" id="data-summary-box">
+                        <div class="chart-container">
+                            <table style="width:100%; border-collapse:collapse;">
+                                <thead>
+                                    <tr>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Column</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Type</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Mean</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Mean</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Std</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Std</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Min</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Min</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Max</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Max</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Mode</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Mode</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Unique</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Unique</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Ref Missing</th>
+                                        <th style="background:var(--gm-primary-blue);color:white;padding:0.5rem;">Cur Missing</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">date</td>
+                                        <td style="padding:0.5rem;">
+                                            Categorical
+                                        </td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">2015-01-01</td>
+                                        <td style="padding:0.5rem;">2016-01-01</td>
+                                        <td style="padding:0.5rem;">31</td>
+                                        <td style="padding:0.5rem;">31</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">VendorID</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">625702.6774193548</td>
+                                        <td style="padding:0.5rem;">540073.7741935484</td>
+                                        <td style="padding:0.5rem;">117366.59510337318</td>
+                                        <td style="padding:0.5rem;">110244.62727005783</td>
+                                        <td style="padding:0.5rem;">216686.0</td>
+                                        <td style="padding:0.5rem;">119845.0</td>
+                                        <td style="padding:0.5rem;">790972.0</td>
+                                        <td style="padding:0.5rem;">667792.0</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">passenger_count</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">691525.9032258064</td>
+                                        <td style="padding:0.5rem;">587860.9354838709</td>
+                                        <td style="padding:0.5rem;">132954.15728271526</td>
+                                        <td style="padding:0.5rem;">120739.21834514129</td>
+                                        <td style="padding:0.5rem;">232108.0</td>
+                                        <td style="padding:0.5rem;">132039.0</td>
+                                        <td style="padding:0.5rem;">898122.0</td>
+                                        <td style="padding:0.5rem;">750773.0</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">trip_distance</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">5535169.515806452</td>
+                                        <td style="padding:0.5rem;">1635394.339032258</td>
+                                        <td style="padding:0.5rem;">8907870.780680755</td>
+                                        <td style="padding:0.5rem;">1940521.0858947253</td>
+                                        <td style="padding:0.5rem;">301167.02</td>
+                                        <td style="padding:0.5rem;">216758.16</td>
+                                        <td style="padding:0.5rem;">31510961.15</td>
+                                        <td style="padding:0.5rem;">9585945.41</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">payment_type</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">570295.6774193548</td>
+                                        <td style="padding:0.5rem;">474109.1612903226</td>
+                                        <td style="padding:0.5rem;">104728.60027085473</td>
+                                        <td style="padding:0.5rem;">95859.87625177935</td>
+                                        <td style="padding:0.5rem;">188248.0</td>
+                                        <td style="padding:0.5rem;">107443.0</td>
+                                        <td style="padding:0.5rem;">718032.0</td>
+                                        <td style="padding:0.5rem;">586656.0</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">fare_amount</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">4896293.075483871</td>
+                                        <td style="padding:0.5rem;">4393327.954516129</td>
+                                        <td style="padding:0.5rem;">940118.1630978973</td>
+                                        <td style="padding:0.5rem;">894904.4714674513</td>
+                                        <td style="padding:0.5rem;">1260877.79</td>
+                                        <td style="padding:0.5rem;">932088.7</td>
+                                        <td style="padding:0.5rem;">5913495.1</td>
+                                        <td style="padding:0.5rem;">5313532.83</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">extra</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">126782.06806451612</td>
+                                        <td style="padding:0.5rem;">110150.71258064517</td>
+                                        <td style="padding:0.5rem;">42699.0497288737</td>
+                                        <td style="padding:0.5rem;">38272.804991201694</td>
+                                        <td style="padding:0.5rem;">41615.56</td>
+                                        <td style="padding:0.5rem;">23797.0</td>
+                                        <td style="padding:0.5rem;">185033.0</td>
+                                        <td style="padding:0.5rem;">159200.72</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">mta_tax</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">204723.46774193548</td>
+                                        <td style="padding:0.5rem;">175097.45258064516</td>
+                                        <td style="padding:0.5rem;">38876.72127742074</td>
+                                        <td style="padding:0.5rem;">36314.44324843767</td>
+                                        <td style="padding:0.5rem;">67598.0</td>
+                                        <td style="padding:0.5rem;">38794.0</td>
+                                        <td style="padding:0.5rem;">259091.0</td>
+                                        <td style="padding:0.5rem;">216846.95</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">tip_amount</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">762394.9748387098</td>
+                                        <td style="padding:0.5rem;">615943.0325806452</td>
+                                        <td style="padding:0.5rem;">717847.3620190235</td>
+                                        <td style="padding:0.5rem;">139847.6659801476</td>
+                                        <td style="padding:0.5rem;">168647.03</td>
+                                        <td style="padding:0.5rem;">132060.23</td>
+                                        <td style="padding:0.5rem;">4556644.47</td>
+                                        <td style="padding:0.5rem;">763453.71</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">tolls_amount</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">100140.56838709678</td>
+                                        <td style="padding:0.5rem;">103208.8748387097</td>
+                                        <td style="padding:0.5rem;">23704.651656949263</td>
+                                        <td style="padding:0.5rem;">25709.265214594765</td>
+                                        <td style="padding:0.5rem;">10346.94</td>
+                                        <td style="padding:0.5rem;">8298.93</td>
+                                        <td style="padding:0.5rem;">127885.06</td>
+                                        <td style="padding:0.5rem;">133665.85</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">improvement_surcharge</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">116444.71935483869</td>
+                                        <td style="padding:0.5rem;">105453.29451612903</td>
+                                        <td style="padding:0.5rem;">32282.683814633703</td>
+                                        <td style="padding:0.5rem;">21848.827127056167</td>
+                                        <td style="padding:0.5rem;">40624.8</td>
+                                        <td style="padding:0.5rem;">23396.4</td>
+                                        <td style="padding:0.5rem;">155951.1</td>
+                                        <td style="padding:0.5rem;">130474.8</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td style="padding:0.5rem;">total_amount</td>
+                                        <td style="padding:0.5rem;">
+                                            Numeric
+                                        </td>
+                                        <td style="padding:0.5rem;">6213401.146451613</td>
+                                        <td style="padding:0.5rem;">5503176.673870969</td>
+                                        <td style="padding:0.5rem;">1369680.0056256377</td>
+                                        <td style="padding:0.5rem;">1134871.4556343162</td>
+                                        <td style="padding:0.5rem;">1620325.23</td>
+                                        <td style="padding:0.5rem;">1162798.76</td>
+                                        <td style="padding:0.5rem;">10000911.64</td>
+                                        <td style="padding:0.5rem;">6628250.16</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">-</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                        <td style="padding:0.5rem;">0</td>
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-header">
+                <h2 class="summary-title">Executive Summary</h2>
+                <div class="status-badge status-drift">
+                    ⚠️ Drift Detected
+                </div>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Columns Analyzed</div>
+                    <div class="metric-value-large">1</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Columns with Drift</div>
+                    <div class="metric-value-large">1</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Drift Detection Rate</div>
+                    <div class="metric-value-large">
+                        100.0%
+                    </div>
+                </div>
+            </div>
+
+            <table class="overview-table">
+                <thead>
+                    <tr>
+                        <th>Column Name</th>
+                        <th>Drift Status</th>
+                        <th>Tests Performed</th>
+                        <th>Tests Detected Drift</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>total_amount</strong></td>
+                        <td>
+                            <span class="test-result drift">
+                                Drift
+                            </span>
+                        </td>
+                        <td class="metric-value">3</td>
+                        <td class="metric-value">3</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Detailed Column Analysis -->
+        <h2 style="color: var(--gm-primary-blue); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 600;">
+            📊 Detailed Column Analysis
+        </h2>
+
+        
+        <div class="column-section">
+            <div class="column-header drift">
+                <div class="column-name">total_amount</div>
+                <div class="column-status drift">
+                    Drift Detected
+                </div>
+            </div>
+
+            <table class="tests-table">
+                <thead>
+                    <tr>
+                        <th>Test Name</th>
+                        <th>Result</th>
+                        <th>Threshold</th>
+                        <th>Weight</th>
+                        <th>Key Metrics</th>
+                        <th>Visualization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <!-- Row 1: Test Details -->
+                    <tr>
+                        <td class="test-name">Ks</td>
+                        <td>
+                            <span class="test-result drift">
+                                Drift Detected
+                            </span>
+                        </td>
+                        <td class="metric-value">0.05</td>
+                        <td class="metric-value">0.3333333333333333</td>
+                        <td>
+                            
+                                
+                                    
+                                    <div style="margin-bottom: 0.25rem;">
+                                        <span style="color: var(--gm-dark-gray); font-size: 0.85rem;">Statistic:</span>
+                                        <span class="metric-value">
+                                            0.4194
+                                        </span>
+                                    </div>
+                                    
+                                
+                                    
+                                    <div style="margin-bottom: 0.25rem;">
+                                        <span style="color: var(--gm-dark-gray); font-size: 0.85rem;">P Value:</span>
+                                        <span class="metric-value">
+                                            0.0079
+                                        </span>
+                                    </div>
+                                    
+                                
+                                    
+                                
+                            
+                        </td>
+                        <td>
+                            
+                                
+                                <button class="expand-btn" data-target="#chart-row-total_amount-1">
+                                    View Chart
+                                </button>
+                            
+                        </td>
+                    </tr>
+                    <!-- Row 2: Hidden Chart Container with smooth animation wrapper -->
+                    
+                        
+                        <tr class="chart-row">
+                            <td colspan="6" class="chart-cell">
+                                <div class="chart-content-wrapper" id="chart-row-total_amount-1">
+                                    <div class="chart-container">
+                                        <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="660c7623-7c06-4a26-89fd-faf16df4e1d5" class="plotly-graph-div" style="height:800px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("660c7623-7c06-4a26-89fd-faf16df4e1d5")) {                    Plotly.newPlot(                        "660c7623-7c06-4a26-89fd-faf16df4e1d5",                        [{"histnorm":"probability density","marker":{"color":"#1f77b4"},"name":"Reference","opacity":0.7,"x":[5843310.5,5125959.57,5738019.93,5104766.03,5526352.49,5671972.45,6178726.66,6597447.71,6709467.82,7177624.24,6217547.63,5960500.94,6704211.78,6690748.16,6968020.97,7252079.53,6649147.32,10000911.64,5168065.61,6153087.45,6449817.09,6896464.4,7204985.66,6296796.24,6079997.600000001,3386270.73,1620325.23,5784928.09,6835041.93,7351182.71,7271657.43],"type":"histogram","xaxis":"x","yaxis":"y"},{"histnorm":"probability density","marker":{"color":"#d62728"},"name":"Current","opacity":0.7,"x":[5396416.61,4751829.61,4875992.75,4858560.75,5181264.63,5269169.53,5583902.55,5943584.74,5816217.83,5337982.91,5335594.53,5575940.19,5983075.19,6258252.73,6446463.59,6081771.59,5688618.43,5115224.17,6096168.64,6099594.01,6439562.65,6480308.29,1162798.76,2412178.94,5256465.7,5906935.7,6039148.88,6350926.03,6628250.16,6533808.53,5692468.2700000005],"type":"histogram","xaxis":"x","yaxis":"y"},{"line":{"color":"#1f77b4","shape":"hv"},"mode":"lines","name":"Reference CDF","x":{"dtype":"f8","bdata":"KVyPwi6+MUGuR+E6Zbk4QYXrUXhJZ0JB16NwXc\u002fVSUFxPQpndSBSQQAAADCwiFJBAAAAMLaZUkEfheuBH3lTQa5H4QpWg1NBSOF65NGNU0FxPQpn8LZTQYXrUSjUw1NBzczMbEQNVEEfhethrBlUQR+F66GKWlRBpHA9ut9cVEFxPQon8JVUQfYoXB\u002fUFFVBw\u002fUoDEFFVUEzMzOjB01VQc3MzBwJo1VBuB6Fm0qzVUEVrkcRDbdVQbgehfuI41VBXI\u002fCBVgRVkFSuB515i9WQQAAAKBbSlZBzczM7H2IVkH2KFwvSKxWQcP1KDzNvFZBw\u002fUozNjSVkGF61E4mwlXQWdmZmZ\u002fMVdBXI\u002fC5TozV0GPwvUoSkFXQQrXo4CiRFdBzczM3N94V0GkcD2q6ZFXQYXrUejSt1dB7FG4LpPfV0H2KFwPNwVYQR+F64ETOlhBmpmZqaKQWEFcj8LlX5dYQVyPwkWmmlhBKVyPEm24WEEfheshrOxYQdejcO3RKllBpHA9iuZIWUFI4XrUTl1ZQaRwPQrvhVlBH4Xr8RSTWUFI4Xr0NphZQbgehXvYElpBmpmZGdROWkHhehQ+tZRaQfYoXA9mYVtBpHA9ah58W0EfhevhG6pbQbgehVs6vVtB16NwreMKXEFI4Xr0QRNjQQ=="},"y":{"dtype":"f8","bdata":"AAAAAAAAAACEEEIIIYSgP4QQQgghhKA\u002fhBBCCCGEsD+EEEIIIYSwP4QQQgghhLA\u002fhBBCCCGEsD\u002fGGGOMMca4P8YYY4wxxrg\u002fhBBCCCGEwD+llFJKKaXEP6WUUkoppcQ\u002fpZRSSimlxD+llFJKKaXEP6WUUkoppcQ\u002fpZRSSimlxD+llFJKKaXEP8YYY4wxxsg\u002fxhhjjDHGyD\u002fGGGOMMcbIP+ecc84558w\u002f55xzzjnnzD\u002fnnHPOOefMP4QQQgghhNA\u002flVJKKaWU0j+VUkoppZTSP6WUUkoppdQ\u002fpZRSSiml1D+llFJKKaXUP7bWWmuttdY\u002fttZaa6211j+21lprrbXWP8YYY4wxxtg\u002fxhhjjDHG2D\u002fGGGOMMcbYP8YYY4wxxtg\u002f11prrbXW2j\u002fnnHPOOefcP\u002fjee++9994\u002f+N5777333j+EEEIIIYTgP4QQQgghhOA\u002fhBBCCCGE4D+EEEIIIYTgP4wxxhhjjOE\u002fjDHGGGOM4T+MMcYYY4zhP5VSSimllOI\u002flVJKKaWU4j+dc84555zjP6WUUkoppeQ\u002frbXWWmut5T+21lprrbXmP7733nvvvec\u002fxhhjjDHG6D\u002fOOeecc87pP9daa6211uo\u002f33vvvffe6z\u002fnnHPOOefsP++999577+0\u002f+N5777337j8AAAAAAADwPw=="},"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"color":"#d62728","shape":"hv"},"mode":"lines","name":"Current CDF","x":{"dtype":"f8","bdata":"KVyPwi6+MUGuR+E6Zbk4QYXrUXhJZ0JB16NwXc\u002fVSUFxPQpndSBSQQAAADCwiFJBAAAAMLaZUkEfheuBH3lTQa5H4QpWg1NBSOF65NGNU0FxPQpn8LZTQYXrUSjUw1NBzczMbEQNVEEfhethrBlUQR+F66GKWlRBpHA9ut9cVEFxPQon8JVUQfYoXB\u002fUFFVBw\u002fUoDEFFVUEzMzOjB01VQc3MzBwJo1VBuB6Fm0qzVUEVrkcRDbdVQbgehfuI41VBXI\u002fCBVgRVkFSuB515i9WQQAAAKBbSlZBzczM7H2IVkH2KFwvSKxWQcP1KDzNvFZBw\u002fUozNjSVkGF61E4mwlXQWdmZmZ\u002fMVdBXI\u002fC5TozV0GPwvUoSkFXQQrXo4CiRFdBzczM3N94V0GkcD2q6ZFXQYXrUejSt1dB7FG4LpPfV0H2KFwPNwVYQR+F64ETOlhBmpmZqaKQWEFcj8LlX5dYQVyPwkWmmlhBKVyPEm24WEEfheshrOxYQdejcO3RKllBpHA9iuZIWUFI4XrUTl1ZQaRwPQrvhVlBH4Xr8RSTWUFI4Xr0NphZQbgehXvYElpBmpmZGdROWkHhehQ+tZRaQfYoXA9mYVtBpHA9ah58W0EfhevhG6pbQbgehVs6vVtB16NwreMKXEFI4Xr0QRNjQQ=="},"y":{"dtype":"f8","bdata":"hBBCCCGEoD+EEEIIIYSgP4QQQgghhLA\u002fhBBCCCGEsD\u002fGGGOMMca4P4QQQgghhMA\u002fpZRSSimlxD+llFJKKaXEP8YYY4wxxsg\u002fxhhjjDHGyD\u002fGGGOMMcbIP+ecc84558w\u002fhBBCCCGE0D+VUkoppZTSP6WUUkoppdQ\u002fttZaa6211j\u002fGGGOMMcbYP8YYY4wxxtg\u002f11prrbXW2j\u002fnnHPOOefcP+ecc84559w\u002f+N5777333j+EEEIIIYTgP4QQQgghhOA\u002fhBBCCCGE4D+MMcYYY4zhP4wxxhhjjOE\u002flVJKKaWU4j+dc84555zjP51zzjnnnOM\u002fpZRSSiml5D+ttdZaa63lP6211lprreU\u002fttZaa6215j++9957773nP8YYY4wxxug\u002fxhhjjDHG6D\u002fGGGOMMcboP8YYY4wxxug\u002fzjnnnHPO6T\u002fOOeecc87pP9daa6211uo\u002f33vvvffe6z\u002fnnHPOOefsP+ecc8455+w\u002f77333nvv7T\u002f43nvvvffuP\u002fjee++99+4\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPw=="},"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"color":"black","dash":"dash","width":3},"mode":"lines","name":"KS Statistic","x":[6533808.53,6533808.53],"y":[0.5483870967741935,0.967741935483871],"type":"scatter","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"total_amount"}},"yaxis":{"anchor":"x","domain":[0.575,1.0],"title":{"text":"Density"}},"xaxis2":{"anchor":"y2","domain":[0.0,1.0],"title":{"text":"total_amount"}},"yaxis2":{"anchor":"x2","domain":[0.0,0.425],"title":{"text":"Cumulative Probability"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Data Distributions","x":0.5,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Empirical CDFs\u003cbr\u003eKS Statistic: 0.4194 | Drift: Yes","x":0.5,"xanchor":"center","xref":"paper","y":0.425,"yanchor":"bottom","yref":"paper"}],"title":{"text":"\u003cb\u003eKolmogorov-Smirnov Test: total_amount\u003c\u002fb\u003e"},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"height":800,"showlegend":true,"barmode":"overlay"},                        {"responsive": true}                    )                };            </script>        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    
+                    
+                    <!-- Row 1: Test Details -->
+                    <tr>
+                        <td class="test-name">Wasserstein</td>
+                        <td>
+                            <span class="test-result drift">
+                                Drift Detected
+                            </span>
+                        </td>
+                        <td class="metric-value">0.1</td>
+                        <td class="metric-value">0.3333333333333333</td>
+                        <td>
+                            
+                                
+                                    
+                                    <div style="margin-bottom: 0.25rem;">
+                                        <span style="color: var(--gm-dark-gray); font-size: 0.85rem;">Wasserstein Distance:</span>
+                                        <span class="metric-value">
+                                            710224.4726
+                                        </span>
+                                    </div>
+                                    
+                                
+                                    
+                                    <div style="margin-bottom: 0.25rem;">
+                                        <span style="color: var(--gm-dark-gray); font-size: 0.85rem;">Wasserstein Distance Norm:</span>
+                                        <span class="metric-value">
+                                            0.5271
+                                        </span>
+                                    </div>
+                                    
+                                
+                                    
+                                
+                            
+                        </td>
+                        <td>
+                            
+                                
+                                <button class="expand-btn" data-target="#chart-row-total_amount-2">
+                                    View Chart
+                                </button>
+                            
+                        </td>
+                    </tr>
+                    <!-- Row 2: Hidden Chart Container with smooth animation wrapper -->
+                    
+                        
+                        <tr class="chart-row">
+                            <td colspan="6" class="chart-cell">
+                                <div class="chart-content-wrapper" id="chart-row-total_amount-2">
+                                    <div class="chart-container">
+                                        <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="b5910869-697a-41c4-8c02-0664509dd717" class="plotly-graph-div" style="height:800px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("b5910869-697a-41c4-8c02-0664509dd717")) {                    Plotly.newPlot(                        "b5910869-697a-41c4-8c02-0664509dd717",                        [{"histnorm":"probability density","marker":{"color":"blue"},"name":"Reference","opacity":0.7,"x":[5843310.5,5125959.57,5738019.93,5104766.03,5526352.49,5671972.45,6178726.66,6597447.71,6709467.82,7177624.24,6217547.63,5960500.94,6704211.78,6690748.16,6968020.97,7252079.53,6649147.32,10000911.64,5168065.61,6153087.45,6449817.09,6896464.4,7204985.66,6296796.24,6079997.600000001,3386270.73,1620325.23,5784928.09,6835041.93,7351182.71,7271657.43],"type":"histogram","xaxis":"x","yaxis":"y","showlegend":true},{"histnorm":"probability density","marker":{"color":"red"},"name":"Current","opacity":0.7,"x":[5396416.61,4751829.61,4875992.75,4858560.75,5181264.63,5269169.53,5583902.55,5943584.74,5816217.83,5337982.91,5335594.53,5575940.19,5983075.19,6258252.73,6446463.59,6081771.59,5688618.43,5115224.17,6096168.64,6099594.01,6439562.65,6480308.29,1162798.76,2412178.94,5256465.7,5906935.7,6039148.88,6350926.03,6628250.16,6533808.53,5692468.2700000005],"type":"histogram","xaxis":"x","yaxis":"y","showlegend":true},{"line":{"color":"blue","shape":"hv"},"mode":"lines","name":"Reference CDF","x":{"dtype":"f8","bdata":"KVyPwi6+MUGuR+E6Zbk4QYXrUXhJZ0JB16NwXc\u002fVSUFxPQpndSBSQQAAADCwiFJBAAAAMLaZUkEfheuBH3lTQa5H4QpWg1NBSOF65NGNU0FxPQpn8LZTQYXrUSjUw1NBzczMbEQNVEEfhethrBlUQR+F66GKWlRBpHA9ut9cVEFxPQon8JVUQfYoXB\u002fUFFVBw\u002fUoDEFFVUEzMzOjB01VQc3MzBwJo1VBuB6Fm0qzVUEVrkcRDbdVQbgehfuI41VBXI\u002fCBVgRVkFSuB515i9WQQAAAKBbSlZBzczM7H2IVkH2KFwvSKxWQcP1KDzNvFZBw\u002fUozNjSVkGF61E4mwlXQWdmZmZ\u002fMVdBXI\u002fC5TozV0GPwvUoSkFXQQrXo4CiRFdBzczM3N94V0GkcD2q6ZFXQYXrUejSt1dB7FG4LpPfV0H2KFwPNwVYQR+F64ETOlhBmpmZqaKQWEFcj8LlX5dYQVyPwkWmmlhBKVyPEm24WEEfheshrOxYQdejcO3RKllBpHA9iuZIWUFI4XrUTl1ZQaRwPQrvhVlBH4Xr8RSTWUFI4Xr0NphZQbgehXvYElpBmpmZGdROWkHhehQ+tZRaQfYoXA9mYVtBpHA9ah58W0EfhevhG6pbQbgehVs6vVtB16NwreMKXEFI4Xr0QRNjQQ=="},"y":{"dtype":"f8","bdata":"AAAAAAAAAACEEEIIIYSgP4QQQgghhKA\u002fhBBCCCGEsD+EEEIIIYSwP4QQQgghhLA\u002fhBBCCCGEsD\u002fGGGOMMca4P8YYY4wxxrg\u002fhBBCCCGEwD+llFJKKaXEP6WUUkoppcQ\u002fpZRSSimlxD+llFJKKaXEP6WUUkoppcQ\u002fpZRSSimlxD+llFJKKaXEP8YYY4wxxsg\u002fxhhjjDHGyD\u002fGGGOMMcbIP+ecc84558w\u002f55xzzjnnzD\u002fnnHPOOefMP4QQQgghhNA\u002flVJKKaWU0j+VUkoppZTSP6WUUkoppdQ\u002fpZRSSiml1D+llFJKKaXUP7bWWmuttdY\u002fttZaa6211j+21lprrbXWP8YYY4wxxtg\u002fxhhjjDHG2D\u002fGGGOMMcbYP8YYY4wxxtg\u002f11prrbXW2j\u002fnnHPOOefcP\u002fjee++9994\u002f+N5777333j+EEEIIIYTgP4QQQgghhOA\u002fhBBCCCGE4D+EEEIIIYTgP4wxxhhjjOE\u002fjDHGGGOM4T+MMcYYY4zhP5VSSimllOI\u002flVJKKaWU4j+dc84555zjP6WUUkoppeQ\u002frbXWWmut5T+21lprrbXmP7733nvvvec\u002fxhhjjDHG6D\u002fOOeecc87pP9daa6211uo\u002f33vvvffe6z\u002fnnHPOOefsP++999577+0\u002f+N5777337j8AAAAAAADwPw=="},"type":"scatter","xaxis":"x2","yaxis":"y2","showlegend":false},{"line":{"color":"red","shape":"hv"},"mode":"lines","name":"Current CDF","x":{"dtype":"f8","bdata":"KVyPwi6+MUGuR+E6Zbk4QYXrUXhJZ0JB16NwXc\u002fVSUFxPQpndSBSQQAAADCwiFJBAAAAMLaZUkEfheuBH3lTQa5H4QpWg1NBSOF65NGNU0FxPQpn8LZTQYXrUSjUw1NBzczMbEQNVEEfhethrBlUQR+F66GKWlRBpHA9ut9cVEFxPQon8JVUQfYoXB\u002fUFFVBw\u002fUoDEFFVUEzMzOjB01VQc3MzBwJo1VBuB6Fm0qzVUEVrkcRDbdVQbgehfuI41VBXI\u002fCBVgRVkFSuB515i9WQQAAAKBbSlZBzczM7H2IVkH2KFwvSKxWQcP1KDzNvFZBw\u002fUozNjSVkGF61E4mwlXQWdmZmZ\u002fMVdBXI\u002fC5TozV0GPwvUoSkFXQQrXo4CiRFdBzczM3N94V0GkcD2q6ZFXQYXrUejSt1dB7FG4LpPfV0H2KFwPNwVYQR+F64ETOlhBmpmZqaKQWEFcj8LlX5dYQVyPwkWmmlhBKVyPEm24WEEfheshrOxYQdejcO3RKllBpHA9iuZIWUFI4XrUTl1ZQaRwPQrvhVlBH4Xr8RSTWUFI4Xr0NphZQbgehXvYElpBmpmZGdROWkHhehQ+tZRaQfYoXA9mYVtBpHA9ah58W0EfhevhG6pbQbgehVs6vVtB16NwreMKXEFI4Xr0QRNjQQ=="},"y":{"dtype":"f8","bdata":"hBBCCCGEoD+EEEIIIYSgP4QQQgghhLA\u002fhBBCCCGEsD\u002fGGGOMMca4P4QQQgghhMA\u002fpZRSSimlxD+llFJKKaXEP8YYY4wxxsg\u002fxhhjjDHGyD\u002fGGGOMMcbIP+ecc84558w\u002fhBBCCCGE0D+VUkoppZTSP6WUUkoppdQ\u002fttZaa6211j\u002fGGGOMMcbYP8YYY4wxxtg\u002f11prrbXW2j\u002fnnHPOOefcP+ecc84559w\u002f+N5777333j+EEEIIIYTgP4QQQgghhOA\u002fhBBCCCGE4D+MMcYYY4zhP4wxxhhjjOE\u002flVJKKaWU4j+dc84555zjP51zzjnnnOM\u002fpZRSSiml5D+ttdZaa63lP6211lprreU\u002fttZaa6215j++9957773nP8YYY4wxxug\u002fxhhjjDHG6D\u002fGGGOMMcboP8YYY4wxxug\u002fzjnnnHPO6T\u002fOOeecc87pP9daa6211uo\u002f33vvvffe6z\u002fnnHPOOefsP+ecc8455+w\u002f77333nvv7T\u002f43nvvvffuP\u002fjee++99+4\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA\u002fAAAAAAAA8D8AAAAAAADwPw=="},"type":"scatter","xaxis":"x2","yaxis":"y2","showlegend":false}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Value"}},"yaxis":{"anchor":"x","domain":[0.625,1.0],"title":{"text":"Density"}},"xaxis2":{"anchor":"y2","domain":[0.0,1.0],"title":{"text":"Value"}},"yaxis2":{"anchor":"x2","domain":[0.0,0.375],"title":{"text":"Cumulative Probability"}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Data Distributions (Histogram)","x":0.5,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Cumulative Distributions (CDF)\u003cbr\u003eWasserstein Distance (norm): 0.5271 | Drift: Yes","x":0.5,"xanchor":"center","xref":"paper","y":0.375,"yanchor":"bottom","yref":"paper"}],"title":{"text":"\u003cb\u003eWasserstein Test: Value\u003c\u002fb\u003e"},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"height":800,"showlegend":true,"barmode":"overlay"},                        {"responsive": true}                    )                };            </script>        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    
+                    
+                    <!-- Row 1: Test Details -->
+                    <tr>
+                        <td class="test-name">Psi</td>
+                        <td>
+                            <span class="test-result drift">
+                                Drift Detected
+                            </span>
+                        </td>
+                        <td class="metric-value">0.2</td>
+                        <td class="metric-value">0.3333333333333333</td>
+                        <td>
+                            
+                                
+                                    
+                                    <div style="margin-bottom: 0.25rem;">
+                                        <span style="color: var(--gm-dark-gray); font-size: 0.85rem;">Psi:</span>
+                                        <span class="metric-value">
+                                            8.9415
+                                        </span>
+                                    </div>
+                                    
+                                
+                                    
+                                
+                            
+                        </td>
+                        <td>
+                            
+                                
+                                <button class="expand-btn" data-target="#chart-row-total_amount-3">
+                                    View Chart
+                                </button>
+                            
+                        </td>
+                    </tr>
+                    <!-- Row 2: Hidden Chart Container with smooth animation wrapper -->
+                    
+                        
+                        <tr class="chart-row">
+                            <td colspan="6" class="chart-cell">
+                                <div class="chart-content-wrapper" id="chart-row-total_amount-3">
+                                    <div class="chart-container">
+                                        <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="f068e723-0766-4d9b-984c-7e182788be34" class="plotly-graph-div" style="height:500px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("f068e723-0766-4d9b-984c-7e182788be34")) {                    Plotly.newPlot(                        "f068e723-0766-4d9b-984c-7e182788be34",                        [{"marker":{"color":"#1f77b4"},"name":"Reference","x":{"dtype":"f8","bdata":"wMqhNZkfR0GwcmiR5l9TQVTjpeuqq1RBXrpJnJOyVUExCKyA5YVWQawcWuAPO1dBLIcWCaAOWEHLoUUmSvdYQY6XbiZ581lB7nw\u002fDw8tYEE="},"y":[0.0645161293548387,0.09677419387096774,0.032258064838709674,0.09677419387096774,0.0645161293548387,0.0645161293548387,0.09677419387096774,0.0645161293548387,0.19354838741935484,0.22580645193548388],"type":"bar"},{"marker":{"color":"#d62728"},"name":"Current","x":{"dtype":"f8","bdata":"wMqhNZkfR0GwcmiR5l9TQVTjpeuqq1RBXrpJnJOyVUExCKyA5YVWQawcWuAPO1dBLIcWCaAOWEHLoUUmSvdYQY6XbiZ581lB7nw\u002fDw8tYEE="},"y":[0.1612903229032258,0.09677419387096774,0.1612903229032258,0.09677419387096774,0.12903225838709678,0.12903225838709678,0.09677419387096774,0.12903225838709678,3.225806451612903e-10,3.225806451612903e-10],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"\u003cb\u003ePopulation Stability Index (PSI): total_amount\u003c\u002fb\u003e\u003cbr\u003ePSI Value: 8.9415 | Drift Detected: Yes"},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"xaxis":{"title":{"text":"Bins \u002f Categories for total_amount"}},"yaxis":{"title":{"text":"Proportion of Observations"}},"barmode":"group","height":500},                        {"responsive": true}                    )                };            </script>        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <p>© 2024 General Mills, Inc. | Data Quality Monitoring System</p>
+        <p style="opacity: 0.8; margin-top: 0.5rem;">Report generated on </p>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(event) {
+            const button = event.target.closest('.expand-btn');
+            if (!button) return;
+
+            const targetSelector = button.dataset.target;
+            const chartWrapper = document.querySelector(targetSelector);
+            if (!chartWrapper) return;
+
+            button.classList.toggle('is-active');
+            const isOpen = chartWrapper.classList.toggle('is-open');
+
+            if (isOpen) {
+                button.textContent = 'Hide Chart';
+                // Use scrollHeight to set the max-height for a perfect fit animation
+                chartWrapper.style.maxHeight = chartWrapper.scrollHeight + 'px';
+
+                // A small timeout allows the CSS transition to start before resizing the plot
+                setTimeout(() => {
+                    const plot = chartWrapper.querySelector('.js-plotly-plot');
+                    if (plot) {
+                        Plotly.Plots.resize(plot);
+                    }
+                }, 100); 
+            } else {
+                button.textContent = 'View Chart';
+                chartWrapper.style.maxHeight = '0';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

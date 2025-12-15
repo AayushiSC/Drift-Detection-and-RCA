@@ -49,12 +49,17 @@ metadata_agent = Agent(
     Use the read_metadata_file() tool to access the metadata content.
     automatically call the tool to get the metadata information, dont wait for a prompt , if you find the file then while analysing it let the user know that you are analysing it else if you dont find it , then let the user know that too.
     Extract and summarize key metadata attributes that are relevant for drift detection analysis.
+    Understand what each of the columns in the dataset represent based on the metadata file.
     
     Provide a structured summary of the metadata information including:
     - Key attributes and their descriptions
-    - Data types and formats
     - Any temporal or categorical information
     - Relevant constraints or business rules
+    - Relevant information provided in the metadata file
+
+    Store the summarized metadata information in the output key "meta_info".
+    Try to be as detailed as possible while summarizing the metadata information.
+    
     """,
     description="Reads and processes metadata information for drift detection.",
     output_key="meta_info",

@@ -23,7 +23,7 @@ def read_drift_report() -> str:
     # Path: DriftReasoningAgent/subagents/drift_report_analyser/agent.py -> go up 3 levels
     current_dir = Path(__file__).parent  # .../drift_report_analyser
     project_root = current_dir.parent.parent.parent  # Go up 3 levels to root
-    drift_report_path = project_root / "data" / "drift_structured_log.json"
+    drift_report_path = project_root / "data" / "drift_results.json"
 
     # Debug info
     debug_info = f"Current file: {__file__}\n"
@@ -38,37 +38,40 @@ def read_drift_report() -> str:
         with open(drift_report_path, "r", encoding="utf-8") as f:
             drift_report = json.load(f)
 
-        # Extract tests information
-        tests = drift_report.get("tests", [])
+        # Check if drift was detected at all
+        is_drift = drift_report.get("is_drift", False)
+        
+        if not is_drift:
+            return "Successfully read drift report. No drift detected in any columns."
 
-        # Group tests by column
+        # Extract column-level drift information from the new structure
+        # New structure: {"details": {"column_name": {"tests": {...}, "is_drift": true}}}
+        details = drift_report.get("details", {})
         drift_by_column = {}
 
-        for test in tests:
-            column = test.get("column")
-            test_name = test.get("test")
-            drift_detected = test.get("drift_detected") == "True"
-
-            if drift_detected:
-                if column not in drift_by_column:
-                    drift_by_column[column] = {
-                        "column": column,
-                        "drift_detected": True,
-                        "tests_detecting_drift": [],
-                        "test_details": [],
-                    }
-
-                drift_by_column[column]["tests_detecting_drift"].append(
-                    test_name
-                )
-                drift_by_column[column]["test_details"].append(
-                    {
-                        "test": test_name,
-                        "threshold": test.get("threshold"),
-                        "weight": test.get("weight"),
-                        "result": test.get("result", {}),
-                    }
-                )
+        for column, column_data in details.items():
+            column_is_drift = column_data.get("is_drift", False)
+            
+            if column_is_drift:
+                tests_data = column_data.get("tests", {})
+                
+                drift_by_column[column] = {
+                    "column": column,
+                    "drift_detected": True,
+                    "tests_detecting_drift": [],
+                    "test_details": [],
+                }
+                
+                # Extract test information
+                for test_name, test_info in tests_data.items():
+                    if test_info.get("drift", False):
+                        drift_by_column[column]["tests_detecting_drift"].append(test_name)
+                        drift_by_column[column]["test_details"].append({
+                            "test": test_name,
+                            "threshold": test_info.get("threshold"),
+                            "weight": test_info.get("weight"),
+                            "result": test_info.get("result", {}),
+                        })
 
         # Format the output
         if not drift_by_column:
@@ -105,7 +108,7 @@ drift_report_agent = Agent(
     Start by saying if you found teh report or not 
     
     
-    Your task is to read and analyze the drift_structured_log.json file to identify:
+    Your task is to read and analyze the drift_results.json file to identify:
     1. Which columns have drift detected
     2. Which statistical tests detected the drift for each column
     3. Test parameters (thresholds and weights)

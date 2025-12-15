@@ -154,7 +154,7 @@ eda_agent = Agent(
     with other columns in the dataset.
 
     you can find the column on which the drift was detected by accessing the drift_info from the state.
-    you can also use the meta_info from the state to help you with your analysis.
+    you can also use the meta_info from the state to help you with your analysis to understand what each column represents.
     
     You will:
     1. Access drift_info from the state to find which column has drift
@@ -170,10 +170,10 @@ eda_agent = Agent(
     
     Provide a clear summary of:
     - Statistical changes in the drifted column
-    - Columns that show strong relationships with the drifted column
-    - Likely causes of the drift based on the data patterns
+    - Columns that show strong relationships with the drifted column and can be reasonably explain the drift
+
     
-    This information will help understand WHY the drift occurred, not just WHERE it occurred.
+    This information will help understand WHY the drift occurred, not just WHERE it occurred and if there were any other columns that can play a role in the drift occurence.
     """,
     description="Performs exploratory data analysis to find relationships and potential causes of detected drift.",
     output_key="eda_info",

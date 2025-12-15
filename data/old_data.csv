@@ -1,217 +1,32 @@
-Retailer,Retailer ID,Invoice Date,Region,State,City,Product,Price per Unit,Units Sold,Total Sales,Operating Profit,Operating Margin,Sales Method,sales,year,month,day
-Walmart,1185732,2020-04-17,Northeast,New York,New York,Men's Apparel,$60.00 ,900,"$540,000 ","$162,000 ",30%,Outlet,540000,2020,4,17
-Walmart,1185732,2020-04-18,Northeast,New York,New York,Women's Apparel,$65.00 ,"1,075","$698,750 ","$174,688 ",25%,Outlet,698750,2020,4,18
-Walmart,1185732,2020-04-19,Northeast,New York,New York,Men's Street Footwear,$60.00 ,"1,200","$720,000 ","$360,000 ",50%,Outlet,720000,2020,4,19
-Walmart,1185732,2020-04-20,Northeast,New York,New York,Men's Athletic Footwear,$55.00 ,"1,000","$550,000 ","$165,000 ",30%,Outlet,550000,2020,4,20
-Walmart,1185732,2020-04-21,Northeast,New York,New York,Women's Street Footwear,$50.00 ,925,"$462,500 ","$161,875 ",35%,Outlet,462500,2020,4,21
-Walmart,1185732,2020-04-22,Northeast,New York,New York,Women's Athletic Footwear,$50.00 ,900,"$450,000 ","$157,500 ",35%,Outlet,450000,2020,4,22
-Walmart,1185732,2020-04-23,Northeast,New York,New York,Men's Apparel,$60.00 ,900,"$540,000 ","$162,000 ",30%,Outlet,540000,2020,4,23
-Walmart,1185732,2020-04-24,Northeast,New York,New York,Women's Apparel,$65.00 ,"1,000","$650,000 ","$162,500 ",25%,Outlet,650000,2020,4,24
-Walmart,1185732,2020-04-25,Northeast,New York,New York,Men's Apparel,$65.00 ,875,"$568,750 ","$170,625 ",30%,Outlet,568750,2020,4,25
-Walmart,1185732,2020-04-26,Northeast,New York,New York,Women's Apparel,$70.00 ,"1,000","$700,000 ","$175,000 ",25%,Outlet,700000,2020,4,26
-Walmart,1185732,2020-04-27,Northeast,New York,New York,Men's Street Footwear,$65.00 ,"1,150","$747,500 ","$373,750 ",50%,Outlet,747500,2020,4,27
-Walmart,1185732,2020-04-28,Northeast,New York,New York,Men's Athletic Footwear,$55.00 ,975,"$536,250 ","$160,875 ",30%,Outlet,536250,2020,4,28
-Walmart,1185732,2020-04-29,Northeast,New York,New York,Women's Street Footwear,$55.00 ,920,"$506,000 ","$177,100 ",35%,Outlet,506000,2020,4,29
-Walmart,1185732,2020-04-30,Northeast,New York,New York,Women's Athletic Footwear,$55.00 ,900,"$495,000 ","$173,250 ",35%,Outlet,495000,2020,4,30
-Walmart,1185732,2020-05-01,Northeast,New York,New York,Men's Apparel,$65.00 ,875,"$568,750 ","$170,625 ",30%,Outlet,568750,2020,5,1
-Walmart,1185732,2020-05-02,Northeast,New York,New York,Women's Apparel,$70.00 ,975,"$682,500 ","$170,625 ",25%,Outlet,682500,2020,5,2
-Walmart,1185732,2020-05-03,Northeast,New York,New York,Men's Street Footwear,$65.00 ,"1,200","$780,000 ","$390,000 ",50%,Outlet,780000,2020,5,3
-Walmart,1185732,2020-05-04,Northeast,New York,New York,Men's Athletic Footwear,$55.00 ,"1,000","$550,000 ","$165,000 ",30%,Outlet,550000,2020,5,4
-Walmart,1185732,2020-05-05,Northeast,New York,New York,Women's Street Footwear,$55.00 ,950,"$522,500 ","$182,875 ",35%,Outlet,522500,2020,5,5
-Walmart,1185732,2020-05-06,Northeast,New York,New York,Women's Athletic Footwear,$55.00 ,900,"$495,000 ","$173,250 ",35%,Outlet,495000,2020,5,6
-Walmart,1185732,2020-05-07,Northeast,New York,New York,Men's Apparel,$65.00 ,900,"$585,000 ","$175,500 ",30%,Outlet,585000,2020,5,7
-Walmart,1185732,2020-07-18,Northeast,New York,New York,Women's Apparel,$70.00 ,"1,000","$700,000 ","$175,000 ",25%,Outlet,700000,2020,7,18
-Walmart,1197831,2020-08-10,South,Texas,Houston,Men's Apparel,$45.00 ,525,"$236,250 ","$70,875 ",30%,Outlet,236250,2020,8,10
-Walmart,1197831,2020-08-11,South,Texas,Houston,Women's Apparel,$40.00 ,800,"$320,000 ","$160,000 ",50%,Outlet,320000,2020,8,11
-Walmart,1197831,2020-08-12,South,Texas,Houston,Men's Street Footwear,$30.00 ,925,"$277,500 ","$97,125 ",35%,Outlet,277500,2020,8,12
-Walmart,1197831,2020-08-13,South,Texas,Houston,Men's Athletic Footwear,$40.00 ,925,"$370,000 ","$129,500 ",35%,Outlet,370000,2020,8,13
-Walmart,1197831,2020-08-14,South,Texas,Houston,Women's Street Footwear,$35.00 ,775,"$271,250 ","$94,938 ",35%,Outlet,271250,2020,8,14
-Walmart,1197831,2020-08-15,South,Texas,Houston,Women's Athletic Footwear,$40.00 ,700,"$280,000 ","$126,000 ",45%,Outlet,280000,2020,8,15
-Walmart,1197831,2020-08-16,South,Texas,Houston,Men's Apparel,$45.00 ,600,"$270,000 ","$81,000 ",30%,Outlet,270000,2020,8,16
-Walmart,1197831,2020-08-17,South,Texas,Houston,Women's Apparel,$40.00 ,950,"$380,000 ","$190,000 ",50%,Outlet,380000,2020,8,17
-Walmart,1197831,2020-08-18,South,Texas,Houston,Men's Street Footwear,$40.00 ,950,"$380,000 ","$133,000 ",35%,Outlet,380000,2020,8,18
-Walmart,1197831,2020-08-19,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,950,"$427,500 ","$149,625 ",35%,Outlet,427500,2020,8,19
-Walmart,1197831,2020-08-20,South,Texas,Houston,Women's Street Footwear,$40.00 ,800,"$320,000 ","$112,000 ",35%,Outlet,320000,2020,8,20
-Walmart,1197831,2020-08-21,South,Texas,Houston,Women's Athletic Footwear,$40.00 ,750,"$300,000 ","$135,000 ",45%,Outlet,300000,2020,8,21
-Walmart,1197831,2020-08-22,South,Texas,Houston,Men's Apparel,$45.00 ,650,"$292,500 ","$87,750 ",30%,Outlet,292500,2020,8,22
-Walmart,1197831,2020-08-23,South,Texas,Houston,Women's Apparel,$50.00 ,"1,000","$500,000 ","$250,000 ",50%,Outlet,500000,2020,8,23
-Walmart,1197831,2020-08-24,South,Texas,Houston,Men's Street Footwear,$40.00 ,950,"$380,000 ","$133,000 ",35%,Outlet,380000,2020,8,24
-Walmart,1197831,2020-08-25,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,950,"$427,500 ","$149,625 ",35%,Outlet,427500,2020,8,25
-Walmart,1197831,2020-08-26,South,Texas,Houston,Women's Street Footwear,$40.00 ,"1,100","$440,000 ","$154,000 ",35%,Outlet,440000,2020,8,26
-Walmart,1197831,2020-08-27,South,Texas,Houston,Women's Athletic Footwear,$40.00 ,700,"$280,000 ","$126,000 ",45%,Outlet,280000,2020,8,27
-Walmart,1197831,2020-08-28,South,Texas,Houston,Men's Apparel,$45.00 ,700,"$315,000 ","$94,500 ",30%,Outlet,315000,2020,8,28
-Walmart,1197831,2020-08-29,South,Texas,Houston,Women's Apparel,$50.00 ,975,"$487,500 ","$243,750 ",50%,Outlet,487500,2020,8,29
-Walmart,1197831,2020-08-30,South,Texas,Houston,Men's Street Footwear,$40.00 ,925,"$370,000 ","$129,500 ",35%,Outlet,370000,2020,8,30
-Walmart,1197831,2020-08-31,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,925,"$416,250 ","$145,688 ",35%,Outlet,416250,2020,8,31
-Walmart,1197831,2020-09-01,South,Texas,Houston,Women's Street Footwear,$40.00 ,"1,100","$440,000 ","$154,000 ",35%,Outlet,440000,2020,9,1
-Walmart,1197831,2020-09-02,South,Texas,Houston,Women's Athletic Footwear,$40.00 ,650,"$260,000 ","$117,000 ",45%,Outlet,260000,2020,9,2
-Walmart,1197831,2020-09-03,South,Texas,Houston,Men's Apparel,$45.00 ,650,"$292,500 ","$87,750 ",30%,Outlet,292500,2020,9,3
-Walmart,1197831,2020-09-04,South,Texas,Houston,Women's Apparel,$50.00 ,900,"$450,000 ","$225,000 ",50%,Outlet,450000,2020,9,4
-Walmart,1197831,2020-09-05,South,Texas,Houston,Men's Street Footwear,$45.00 ,850,"$382,500 ","$133,875 ",35%,Outlet,382500,2020,9,5
-Walmart,1197831,2020-09-06,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,850,"$382,500 ","$133,875 ",35%,Outlet,382500,2020,9,6
-Walmart,1197831,2020-09-07,South,Texas,Houston,Women's Street Footwear,$50.00 ,900,"$450,000 ","$157,500 ",35%,Outlet,450000,2020,9,7
-Walmart,1197831,2020-09-08,South,Texas,Houston,Women's Athletic Footwear,$50.00 ,625,"$312,500 ","$140,625 ",45%,Outlet,312500,2020,9,8
-Walmart,1197831,2020-09-09,South,Texas,Houston,Men's Apparel,$45.00 ,625,"$281,250 ","$84,375 ",30%,Outlet,281250,2020,9,9
-Walmart,1197831,2020-09-10,South,Texas,Houston,Women's Apparel,$55.00 ,850,"$467,500 ","$233,750 ",50%,Outlet,467500,2020,9,10
-Walmart,1197831,2020-09-11,South,Texas,Houston,Men's Street Footwear,$45.00 ,800,"$360,000 ","$126,000 ",35%,Outlet,360000,2020,9,11
-Walmart,1197831,2020-09-12,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,800,"$360,000 ","$126,000 ",35%,Outlet,360000,2020,9,12
-Walmart,1197831,2020-09-13,South,Texas,Houston,Women's Street Footwear,$50.00 ,750,"$375,000 ","$131,250 ",35%,Outlet,375000,2020,9,13
-Walmart,1197831,2020-09-14,South,Texas,Houston,Women's Athletic Footwear,$50.00 ,600,"$300,000 ","$135,000 ",45%,Outlet,300000,2020,9,14
-Walmart,1197831,2020-09-15,South,Texas,Houston,Men's Apparel,$45.00 ,575,"$258,750 ","$77,625 ",30%,Outlet,258750,2020,9,15
-Walmart,1197831,2020-09-16,South,Texas,Houston,Women's Apparel,$55.00 ,750,"$412,500 ","$206,250 ",50%,Outlet,412500,2020,9,16
-Walmart,1197831,2020-10-20,South,Texas,Houston,Men's Street Footwear,$45.00 ,900,"$405,000 ","$141,750 ",35%,Outlet,405000,2020,10,20
-Walmart,1197831,2020-10-21,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,900,"$405,000 ","$141,750 ",35%,Outlet,405000,2020,10,21
-Walmart,1197831,2020-10-22,South,Texas,Houston,Women's Street Footwear,$50.00 ,825,"$412,500 ","$144,375 ",35%,Outlet,412500,2020,10,22
-Walmart,1197831,2020-10-23,South,Texas,Houston,Women's Athletic Footwear,$50.00 ,675,"$337,500 ","$151,875 ",45%,Outlet,337500,2020,10,23
-Walmart,1197831,2020-10-24,South,Texas,Houston,Men's Apparel,$45.00 ,650,"$292,500 ","$87,750 ",30%,Outlet,292500,2020,10,24
-Walmart,1197831,2020-10-25,South,Texas,Houston,Women's Apparel,$55.00 ,850,"$467,500 ","$233,750 ",50%,Outlet,467500,2020,10,25
-Walmart,1197831,2020-10-26,South,Texas,Houston,Men's Street Footwear,$45.00 ,950,"$427,500 ","$149,625 ",35%,Outlet,427500,2020,10,26
-Walmart,1197831,2020-10-27,South,Texas,Houston,Men's Athletic Footwear,$45.00 ,950,"$427,500 ","$149,625 ",35%,Outlet,427500,2020,10,27
-Walmart,1197831,2020-10-28,South,Texas,Houston,Women's Street Footwear,$50.00 ,850,"$425,000 ","$148,750 ",35%,Outlet,425000,2020,10,28
-Walmart,1197831,2020-10-29,South,Texas,Houston,Women's Athletic Footwear,$50.00 ,700,"$350,000 ","$157,500 ",45%,Outlet,350000,2020,10,29
-Walmart,1197831,2020-10-30,South,Texas,Houston,Men's Apparel,$45.00 ,650,"$292,500 ","$87,750 ",30%,Outlet,292500,2020,10,30
-Walmart,1197831,2020-10-31,South,Texas,Houston,Women's Apparel,$55.00 ,900,"$495,000 ","$247,500 ",50%,Outlet,495000,2020,10,31
-Walmart,1185732,2020-04-17,Northeast,New York,New York,Men's Apparel,$54.00 ,270,"$14,580 ","$6,561 ",45%,Online,14580,2020,4,17
-Walmart,1185732,2020-04-18,Northeast,New York,New York,Women's Apparel,$62.00 ,290,"$17,980 ","$6,653 ",37%,Online,17980,2020,4,18
-Walmart,1185732,2020-04-19,Northeast,New York,New York,Men's Street Footwear,$56.00 ,360,"$20,160 ","$12,499 ",62%,Online,20160,2020,4,19
-Walmart,1185732,2020-04-20,Northeast,New York,New York,Men's Athletic Footwear,$50.00 ,270,"$13,500 ","$5,940 ",44%,Online,13500,2020,4,20
-Walmart,1185732,2020-04-21,Northeast,New York,New York,Women's Street Footwear,$47.00 ,268,"$12,596 ","$5,920 ",47%,Online,12596,2020,4,21
-Walmart,1185732,2020-04-22,Northeast,New York,New York,Women's Athletic Footwear,$47.00 ,252,"$11,844 ","$5,448 ",46%,Online,11844,2020,4,22
-Walmart,1185732,2020-04-23,Northeast,New York,New York,Men's Apparel,$58.00 ,252,"$14,616 ","$5,846 ",40%,Online,14616,2020,4,23
-Walmart,1185732,2020-04-24,Northeast,New York,New York,Women's Apparel,$59.00 ,280,"$16,520 ","$6,608 ",40%,Online,16520,2020,4,24
-Walmart,1185732,2020-04-25,Northeast,New York,New York,Men's Apparel,$64.00 ,236,"$15,104 ","$6,344 ",42%,Online,15104,2020,4,25
-Walmart,1185732,2020-04-26,Northeast,New York,New York,Women's Apparel,$68.00 ,290,"$19,720 ","$7,494 ",38%,Online,19720,2020,4,26
-Walmart,1185732,2020-04-27,Northeast,New York,New York,Men's Street Footwear,$60.00 ,299,"$17,940 ","$10,764 ",60%,Online,17940,2020,4,27
-Walmart,1185732,2020-04-28,Northeast,New York,New York,Men's Athletic Footwear,$53.00 ,273,"$14,469 ","$6,222 ",43%,Online,14469,2020,4,28
-Walmart,1185732,2020-04-29,Northeast,New York,New York,Women's Street Footwear,$52.00 ,258,"$13,416 ","$6,440 ",48%,Online,13416,2020,4,29
-Walmart,1185732,2020-04-30,Northeast,New York,New York,Women's Athletic Footwear,$50.00 ,252,"$12,600 ","$6,174 ",49%,Online,12600,2020,4,30
-Walmart,1185732,2020-05-01,Northeast,New York,New York,Men's Apparel,$64.00 ,254,"$16,256 ","$6,828 ",42%,Online,16256,2020,5,1
-Walmart,1185732,2020-05-02,Northeast,New York,New York,Women's Apparel,$66.00 ,263,"$17,358 ","$6,422 ",37%,Online,17358,2020,5,2
-Walmart,1185732,2020-05-03,Northeast,New York,New York,Men's Street Footwear,$62.00 ,312,"$19,344 ","$12,380 ",64%,Online,19344,2020,5,3
-Walmart,1185732,2020-05-04,Northeast,New York,New York,Men's Athletic Footwear,$51.00 ,300,"$15,300 ","$6,426 ",42%,Online,15300,2020,5,4
-Walmart,1185732,2020-05-05,Northeast,New York,New York,Women's Street Footwear,$54.00 ,285,"$15,390 ","$7,233 ",47%,Online,15390,2020,5,5
-Walmart,1185732,2020-05-06,Northeast,New York,New York,Women's Athletic Footwear,$54.00 ,225,"$12,150 ","$5,589 ",46%,Online,12150,2020,5,6
-Walmart,1185732,2020-05-07,Northeast,New York,New York,Men's Apparel,$60.00 ,261,"$15,660 ","$6,734 ",43%,Online,15660,2020,5,7
-Walmart,1185732,2020-07-18,Northeast,New York,New York,Women's Apparel,$68.00 ,290,"$19,720 ","$6,902 ",35%,Online,19720,2020,7,18
-Walmart,1197831,2020-08-10,South,Texas,Houston,Men's Apparel,$42.00 ,147,"$6,174 ","$2,593 ",42%,Online,6174,2020,8,10
-Walmart,1197831,2020-08-11,South,Texas,Houston,Women's Apparel,$39.00 ,232,"$9,048 ","$5,519 ",61%,Online,9048,2020,8,11
-Walmart,1197831,2020-08-12,South,Texas,Houston,Men's Street Footwear,$29.00 ,268,"$7,772 ","$3,731 ",48%,Online,7772,2020,8,12
-Walmart,1197831,2020-08-13,South,Texas,Houston,Men's Athletic Footwear,$38.00 ,259,"$9,842 ","$4,527 ",46%,Online,9842,2020,8,13
-Walmart,1197831,2020-08-14,South,Texas,Houston,Women's Street Footwear,$33.00 ,225,"$7,425 ","$3,564 ",48%,Online,7425,2020,8,14
-Walmart,1197831,2020-08-15,South,Texas,Houston,Women's Athletic Footwear,$39.00 ,189,"$7,371 ","$4,275 ",58%,Online,7371,2020,8,15
-Walmart,1197831,2020-08-16,South,Texas,Houston,Men's Apparel,$42.00 ,168,"$7,056 ","$2,822 ",40%,Online,7056,2020,8,16
-Walmart,1197831,2020-08-17,South,Texas,Houston,Women's Apparel,$37.00 ,276,"$10,212 ","$6,434 ",63%,Online,10212,2020,8,17
-Walmart,1197831,2020-08-18,South,Texas,Houston,Men's Street Footwear,$39.00 ,238,"$9,282 ","$4,363 ",47%,Online,9282,2020,8,18
-Walmart,1197831,2020-08-19,South,Texas,Houston,Men's Athletic Footwear,$42.00 ,238,"$9,996 ","$4,498 ",45%,Online,9996,2020,8,19
-Walmart,1197831,2020-08-20,South,Texas,Houston,Women's Street Footwear,$37.00 ,232,"$8,584 ","$4,206 ",49%,Online,8584,2020,8,20
-Walmart,1197831,2020-08-21,South,Texas,Houston,Women's Athletic Footwear,$38.00 ,203,"$7,714 ","$4,397 ",57%,Online,7714,2020,8,21
-Walmart,1197831,2020-08-22,South,Texas,Houston,Men's Apparel,$41.00 ,169,"$6,929 ","$3,118 ",45%,Online,6929,2020,8,22
-Walmart,1197831,2020-08-23,South,Texas,Houston,Women's Apparel,$47.00 ,250,"$11,750 ","$7,520 ",64%,Online,11750,2020,8,23
-Walmart,1197831,2020-08-24,South,Texas,Houston,Men's Street Footwear,$37.00 ,238,"$8,806 ","$3,963 ",45%,Online,8806,2020,8,24
-Walmart,1197831,2020-08-25,South,Texas,Houston,Men's Athletic Footwear,$42.00 ,238,"$9,996 ","$4,598 ",46%,Online,9996,2020,8,25
-Walmart,1197831,2020-08-26,South,Texas,Houston,Women's Street Footwear,$37.00 ,319,"$11,803 ","$5,311 ",45%,Online,11803,2020,8,26
-Walmart,1197831,2020-08-27,South,Texas,Houston,Women's Athletic Footwear,$36.00 ,210,"$7,560 ","$4,536 ",60%,Online,7560,2020,8,27
-Walmart,1197831,2020-08-28,South,Texas,Houston,Men's Apparel,$41.00 ,196,"$8,036 ","$3,214 ",40%,Online,8036,2020,8,28
-Walmart,1197831,2020-08-29,South,Texas,Houston,Women's Apparel,$47.00 ,293,"$13,771 ","$8,676 ",63%,Online,13771,2020,8,29
-Walmart,1197831,2020-08-30,South,Texas,Houston,Men's Street Footwear,$37.00 ,268,"$9,916 ","$4,859 ",49%,Online,9916,2020,8,30
-Walmart,1197831,2020-08-31,South,Texas,Houston,Men's Athletic Footwear,$41.00 ,259,"$10,619 ","$4,779 ",45%,Online,10619,2020,8,31
-Walmart,1197831,2020-09-01,South,Texas,Houston,Women's Street Footwear,$39.00 ,297,"$11,583 ","$5,328 ",46%,Online,11583,2020,9,1
-Walmart,1197831,2020-09-02,South,Texas,Houston,Women's Athletic Footwear,$38.00 ,189,"$7,182 ","$4,237 ",59%,Online,7182,2020,9,2
-Walmart,1197831,2020-09-03,South,Texas,Houston,Men's Apparel,$41.00 ,169,"$6,929 ","$2,772 ",40%,Online,6929,2020,9,3
-Walmart,1197831,2020-09-04,South,Texas,Houston,Women's Apparel,$46.00 ,225,"$10,350 ","$6,728 ",65%,Online,10350,2020,9,4
-Walmart,1197831,2020-09-05,South,Texas,Houston,Men's Street Footwear,$44.00 ,255,"$11,220 ","$5,386 ",48%,Online,11220,2020,9,5
-Walmart,1197831,2020-09-06,South,Texas,Houston,Men's Athletic Footwear,$41.00 ,213,"$8,733 ","$4,017 ",46%,Online,8733,2020,9,6
-Walmart,1197831,2020-09-07,South,Texas,Houston,Women's Street Footwear,$46.00 ,234,"$10,764 ","$5,274 ",49%,Online,10764,2020,9,7
-Walmart,1197831,2020-09-08,South,Texas,Houston,Women's Athletic Footwear,$47.00 ,181,"$8,507 ","$4,679 ",55%,Online,8507,2020,9,8
-Walmart,1197831,2020-09-09,South,Texas,Houston,Men's Apparel,$44.00 ,175,"$7,700 ","$3,311 ",43%,Online,7700,2020,9,9
-Walmart,1197831,2020-09-10,South,Texas,Houston,Women's Apparel,$50.00 ,213,"$10,650 ","$6,816 ",64%,Online,10650,2020,9,10
-Walmart,1197831,2020-09-11,South,Texas,Houston,Men's Street Footwear,$44.00 ,240,"$10,560 ","$5,280 ",50%,Online,10560,2020,9,11
-Walmart,1197831,2020-09-12,South,Texas,Houston,Men's Athletic Footwear,$43.00 ,216,"$9,288 ","$4,365 ",47%,Online,9288,2020,9,12
-Walmart,1197831,2020-09-13,South,Texas,Houston,Women's Street Footwear,$48.00 ,188,"$9,024 ","$4,241 ",47%,Online,9024,2020,9,13
-Walmart,1197831,2020-09-14,South,Texas,Houston,Women's Athletic Footwear,$45.00 ,168,"$7,560 ","$4,385 ",58%,Online,7560,2020,9,14
-Walmart,1197831,2020-09-15,South,Texas,Houston,Men's Apparel,$42.00 ,150,"$6,300 ","$2,583 ",41%,Online,6300,2020,9,15
-Walmart,1197831,2020-09-16,South,Texas,Houston,Women's Apparel,$53.00 ,210,"$11,130 ","$6,901 ",62%,Online,11130,2020,9,16
-Walmart,1197831,2020-10-20,South,Texas,Houston,Men's Street Footwear,$43.00 ,234,"$10,062 ","$4,930 ",49%,Online,10062,2020,10,20
-Walmart,1197831,2020-10-21,South,Texas,Houston,Men's Athletic Footwear,$43.00 ,243,"$10,449 ","$5,120 ",49%,Online,10449,2020,10,21
-Walmart,1197831,2020-10-22,South,Texas,Houston,Women's Street Footwear,$47.00 ,206,"$9,682 ","$4,647 ",48%,Online,9682,2020,10,22
-Walmart,1197831,2020-10-23,South,Texas,Houston,Women's Athletic Footwear,$48.00 ,203,"$9,744 ","$5,359 ",55%,Online,9744,2020,10,23
-Walmart,1197831,2020-10-24,South,Texas,Houston,Men's Apparel,$42.00 ,195,"$8,190 ","$3,686 ",45%,Online,8190,2020,10,24
-Walmart,1197831,2020-10-25,South,Texas,Houston,Women's Apparel,$51.00 ,247,"$12,597 ","$7,810 ",62%,Online,12597,2020,10,25
-Walmart,1197831,2020-10-26,South,Texas,Houston,Men's Street Footwear,$41.00 ,238,"$9,758 ","$4,684 ",48%,Online,9758,2020,10,26
-Walmart,1197831,2020-10-27,South,Texas,Houston,Men's Athletic Footwear,$44.00 ,285,"$12,540 ","$6,019 ",48%,Online,12540,2020,10,27
-Walmart,1197831,2020-10-28,South,Texas,Houston,Women's Street Footwear,$47.00 ,255,"$11,985 ","$5,873 ",49%,Online,11985,2020,10,28
-Walmart,1197831,2020-10-29,South,Texas,Houston,Women's Athletic Footwear,$47.00 ,182,"$8,554 ","$4,961 ",58%,Online,8554,2020,10,29
-Walmart,1197831,2020-10-30,South,Texas,Houston,Men's Apparel,$42.00 ,169,"$7,098 ","$3,194 ",45%,Online,7098,2020,10,30
-Walmart,1197831,2020-10-31,South,Texas,Houston,Women's Apparel,$53.00 ,261,"$13,833 ","$8,576 ",62%,Online,13833,2020,10,31
-Walmart,1185732,2020-04-17,Northeast,New York,New York,Men's Apparel,$43.00 ,279,"$11,997 ","$3,959 ",33%,Outlet,11997,2020,4,17
-Walmart,1185732,2020-04-18,Northeast,New York,New York,Women's Apparel,$48.00 ,355,"$17,040 ","$5,112 ",30%,Outlet,17040,2020,4,18
-Walmart,1185732,2020-04-19,Northeast,New York,New York,Men's Street Footwear,$39.00 ,408,"$15,912 ","$8,752 ",55%,Outlet,15912,2020,4,19
-Walmart,1185732,2020-04-20,Northeast,New York,New York,Men's Athletic Footwear,$43.00 ,350,"$15,050 ","$4,967 ",33%,Outlet,15050,2020,4,20
-Walmart,1185732,2020-04-21,Northeast,New York,New York,Women's Street Footwear,$36.00 ,315,"$11,340 ","$4,423 ",39%,Outlet,11340,2020,4,21
-Walmart,1185732,2020-04-22,Northeast,New York,New York,Women's Athletic Footwear,$34.00 ,306,"$10,404 ","$4,058 ",39%,Outlet,10404,2020,4,22
-Walmart,1185732,2020-04-23,Northeast,New York,New York,Men's Apparel,$44.00 ,315,"$13,860 ","$5,128 ",37%,Outlet,13860,2020,4,23
-Walmart,1185732,2020-04-24,Northeast,New York,New York,Women's Apparel,$45.00 ,350,"$15,750 ","$4,725 ",30%,Outlet,15750,2020,4,24
-Walmart,1185732,2020-04-25,Northeast,New York,New York,Men's Apparel,$51.00 ,289,"$14,739 ","$4,716 ",32%,Outlet,14739,2020,4,25
-Walmart,1185732,2020-04-26,Northeast,New York,New York,Women's Apparel,$50.00 ,330,"$16,500 ","$4,620 ",28%,Outlet,16500,2020,4,26
-Walmart,1185732,2020-04-27,Northeast,New York,New York,Men's Street Footwear,$46.00 ,403,"$18,538 ","$10,381 ",56%,Outlet,18538,2020,4,27
-Walmart,1185732,2020-04-28,Northeast,New York,New York,Men's Athletic Footwear,$40.00 ,312,"$12,480 ","$4,493 ",36%,Outlet,12480,2020,4,28
-Walmart,1185732,2020-04-29,Northeast,New York,New York,Women's Street Footwear,$43.00 ,294,"$12,642 ","$5,310 ",42%,Outlet,12642,2020,4,29
-Walmart,1185732,2020-04-30,Northeast,New York,New York,Women's Athletic Footwear,$41.00 ,270,"$11,070 ","$4,096 ",37%,Outlet,11070,2020,4,30
-Walmart,1185732,2020-05-01,Northeast,New York,New York,Men's Apparel,$47.00 ,280,"$13,160 ","$4,738 ",36%,Outlet,13160,2020,5,1
-Walmart,1185732,2020-05-02,Northeast,New York,New York,Women's Apparel,$53.00 ,322,"$17,066 ","$4,778 ",28%,Outlet,17066,2020,5,2
-Walmart,1185732,2020-05-03,Northeast,New York,New York,Men's Street Footwear,$48.00 ,420,"$20,160 ","$11,290 ",56%,Outlet,20160,2020,5,3
-Walmart,1185732,2020-05-04,Northeast,New York,New York,Men's Athletic Footwear,$43.00 ,310,"$13,330 ","$4,666 ",35%,Outlet,13330,2020,5,4
-Walmart,1185732,2020-05-05,Northeast,New York,New York,Women's Street Footwear,$42.00 ,333,"$13,986 ","$5,594 ",40%,Outlet,13986,2020,5,5
-Walmart,1185732,2020-05-06,Northeast,New York,New York,Women's Athletic Footwear,$41.00 ,306,"$12,546 ","$5,018 ",40%,Outlet,12546,2020,5,6
-Walmart,1185732,2020-05-07,Northeast,New York,New York,Men's Apparel,$48.00 ,279,"$13,392 ","$4,955 ",37%,Outlet,13392,2020,5,7
-Walmart,1185732,2020-07-18,Northeast,New York,New York,Women's Apparel,$48.00 ,340,"$16,320 ","$4,896 ",30%,Outlet,16320,2020,7,18
-Walmart,1197831,2020-08-10,South,Texas,Houston,Men's Apparel,$34.00 ,179,"$6,086 ","$2,069 ",34%,Outlet,6086,2020,8,10
-Walmart,1197831,2020-08-11,South,Texas,Houston,Women's Apparel,$27.00 ,272,"$7,344 ","$4,039 ",55%,Outlet,7344,2020,8,11
-Walmart,1197831,2020-08-12,South,Texas,Houston,Men's Street Footwear,$24.00 ,315,"$7,560 ","$2,948 ",39%,Outlet,7560,2020,8,12
-Walmart,1197831,2020-08-13,South,Texas,Houston,Men's Athletic Footwear,$30.00 ,287,"$8,610 ","$3,616 ",42%,Outlet,8610,2020,8,13
-Walmart,1197831,2020-08-14,South,Texas,Houston,Women's Street Footwear,$23.00 ,240,"$5,520 ","$2,042 ",37%,Outlet,5520,2020,8,14
-Walmart,1197831,2020-08-15,South,Texas,Houston,Women's Athletic Footwear,$31.00 ,245,"$7,595 ","$3,873 ",51%,Outlet,7595,2020,8,15
-Walmart,1197831,2020-08-16,South,Texas,Houston,Men's Apparel,$35.00 ,180,"$6,300 ","$2,205 ",35%,Outlet,6300,2020,8,16
-Walmart,1197831,2020-08-17,South,Texas,Houston,Women's Apparel,$32.00 ,295,"$9,440 ","$5,381 ",57%,Outlet,9440,2020,8,17
-Walmart,1197831,2020-08-18,South,Texas,Houston,Men's Street Footwear,$28.00 ,295,"$8,260 ","$3,387 ",41%,Outlet,8260,2020,8,18
-Walmart,1197831,2020-08-19,South,Texas,Houston,Men's Athletic Footwear,$33.00 ,323,"$10,659 ","$4,477 ",42%,Outlet,10659,2020,8,19
-Walmart,1197831,2020-08-20,South,Texas,Houston,Women's Street Footwear,$27.00 ,264,"$7,128 ","$2,851 ",40%,Outlet,7128,2020,8,20
-Walmart,1197831,2020-08-21,South,Texas,Houston,Women's Athletic Footwear,$26.00 ,263,"$6,838 ","$3,282 ",48%,Outlet,6838,2020,8,21
-Walmart,1197831,2020-08-22,South,Texas,Houston,Men's Apparel,$29.00 ,221,"$6,409 ","$2,051 ",32%,Outlet,6409,2020,8,22
-Walmart,1197831,2020-08-23,South,Texas,Houston,Women's Apparel,$38.00 ,350,"$13,300 ","$7,581 ",57%,Outlet,13300,2020,8,23
-Walmart,1197831,2020-08-24,South,Texas,Houston,Men's Street Footwear,$29.00 ,295,"$8,555 ","$3,422 ",40%,Outlet,8555,2020,8,24
-Walmart,1197831,2020-08-25,South,Texas,Houston,Men's Athletic Footwear,$32.00 ,285,"$9,120 ","$3,830 ",42%,Outlet,9120,2020,8,25
-Walmart,1197831,2020-08-26,South,Texas,Houston,Women's Street Footwear,$29.00 ,374,"$10,846 ","$4,447 ",41%,Outlet,10846,2020,8,26
-Walmart,1197831,2020-08-27,South,Texas,Houston,Women's Athletic Footwear,$28.00 ,224,"$6,272 ","$3,261 ",52%,Outlet,6272,2020,8,27
-Walmart,1197831,2020-08-28,South,Texas,Houston,Men's Apparel,$33.00 ,217,"$7,161 ","$2,578 ",36%,Outlet,7161,2020,8,28
-Walmart,1197831,2020-08-29,South,Texas,Houston,Women's Apparel,$36.00 ,302,"$10,872 ","$5,653 ",52%,Outlet,10872,2020,8,29
-Walmart,1197831,2020-08-30,South,Texas,Houston,Men's Street Footwear,$27.00 ,305,"$8,235 ","$3,047 ",37%,Outlet,8235,2020,8,30
-Walmart,1197831,2020-08-31,South,Texas,Houston,Men's Athletic Footwear,$33.00 ,305,"$10,065 ","$3,825 ",38%,Outlet,10065,2020,8,31
-Walmart,1197831,2020-09-01,South,Texas,Houston,Women's Street Footwear,$29.00 ,374,"$10,846 ","$4,447 ",41%,Outlet,10846,2020,9,1
-Walmart,1197831,2020-09-02,South,Texas,Houston,Women's Athletic Footwear,$30.00 ,215,"$6,450 ","$3,096 ",48%,Outlet,6450,2020,9,2
-Walmart,1197831,2020-09-03,South,Texas,Houston,Men's Apparel,$35.00 ,228,"$7,980 ","$2,713 ",34%,Outlet,7980,2020,9,3
-Walmart,1197831,2020-09-04,South,Texas,Houston,Women's Apparel,$39.00 ,270,"$10,530 ","$5,686 ",54%,Outlet,10530,2020,9,4
-Walmart,1197831,2020-09-05,South,Texas,Houston,Men's Street Footwear,$33.00 ,264,"$8,712 ","$3,659 ",42%,Outlet,8712,2020,9,5
-Walmart,1197831,2020-09-06,South,Texas,Houston,Men's Athletic Footwear,$32.00 ,255,"$8,160 ","$3,019 ",37%,Outlet,8160,2020,9,6
-Walmart,1197831,2020-09-07,South,Texas,Houston,Women's Street Footwear,$36.00 ,315,"$11,340 ","$4,309 ",38%,Outlet,11340,2020,9,7
-Walmart,1197831,2020-09-08,South,Texas,Houston,Women's Athletic Footwear,$37.00 ,200,"$7,400 ","$3,700 ",50%,Outlet,7400,2020,9,8
-Walmart,1197831,2020-09-09,South,Texas,Houston,Men's Apparel,$36.00 ,206,"$7,416 ","$2,670 ",36%,Outlet,7416,2020,9,9
-Walmart,1197831,2020-09-10,South,Texas,Houston,Women's Apparel,$42.00 ,298,"$12,516 ","$7,134 ",57%,Outlet,12516,2020,9,10
-Walmart,1197831,2020-09-11,South,Texas,Houston,Men's Street Footwear,$31.00 ,272,"$8,432 ","$3,288 ",39%,Outlet,8432,2020,9,11
-Walmart,1197831,2020-09-12,South,Texas,Houston,Men's Athletic Footwear,$29.00 ,248,"$7,192 ","$2,805 ",39%,Outlet,7192,2020,9,12
-Walmart,1197831,2020-09-13,South,Texas,Houston,Women's Street Footwear,$39.00 ,255,"$9,945 ","$3,680 ",37%,Outlet,9945,2020,9,13
-Walmart,1197831,2020-09-14,South,Texas,Houston,Women's Athletic Footwear,$36.00 ,204,"$7,344 ","$3,452 ",47%,Outlet,7344,2020,9,14
-Walmart,1197831,2020-09-15,South,Texas,Houston,Men's Apparel,$35.00 ,184,"$6,440 ","$2,383 ",37%,Outlet,6440,2020,9,15
-Walmart,1197831,2020-09-16,South,Texas,Houston,Women's Apparel,$43.00 ,233,"$10,019 ","$5,410 ",54%,Outlet,10019,2020,9,16
-Walmart,1197831,2020-10-20,South,Texas,Houston,Men's Street Footwear,$34.00 ,270,"$9,180 ","$3,488 ",38%,Outlet,9180,2020,10,20
-Walmart,1197831,2020-10-21,South,Texas,Houston,Men's Athletic Footwear,$31.00 ,306,"$9,486 ","$3,794 ",40%,Outlet,9486,2020,10,21
-Walmart,1197831,2020-10-22,South,Texas,Houston,Women's Street Footwear,$34.00 ,281,"$9,554 ","$3,726 ",39%,Outlet,9554,2020,10,22
-Walmart,1197831,2020-10-23,South,Texas,Houston,Women's Athletic Footwear,$36.00 ,230,"$8,280 ","$4,140 ",50%,Outlet,8280,2020,10,23
-Walmart,1197831,2020-10-24,South,Texas,Houston,Men's Apparel,$30.00 ,195,"$5,850 ","$1,872 ",32%,Outlet,5850,2020,10,24
-Walmart,1197831,2020-10-25,South,Texas,Houston,Women's Apparel,$44.00 ,289,"$12,716 ","$7,248 ",57%,Outlet,12716,2020,10,25
-Walmart,1197831,2020-10-26,South,Texas,Houston,Men's Street Footwear,$32.00 ,333,"$10,656 ","$4,262 ",40%,Outlet,10656,2020,10,26
-Walmart,1197831,2020-10-27,South,Texas,Houston,Men's Athletic Footwear,$34.00 ,333,"$11,322 ","$4,755 ",42%,Outlet,11322,2020,10,27
-Walmart,1197831,2020-10-28,South,Texas,Houston,Women's Street Footwear,$38.00 ,298,"$11,324 ","$4,303 ",38%,Outlet,11324,2020,10,28
-Walmart,1197831,2020-10-29,South,Texas,Houston,Women's Athletic Footwear,$36.00 ,210,"$7,560 ","$3,931 ",52%,Outlet,7560,2020,10,29
-Walmart,1197831,2020-10-30,South,Texas,Houston,Men's Apparel,$30.00 ,208,"$6,240 ","$2,246 ",36%,Outlet,6240,2020,10,30
-Walmart,1197831,2020-10-31,South,Texas,Houston,Women's Apparel,$41.00 ,306,"$12,546 ","$6,900 ",55%,Outlet,12546,2020,10,31
+date,VendorID,passenger_count,trip_distance,RateCodeID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount
+2015-01-01,590915,690407,1235971.79,399922,577991,4851237.19,102900.6,189762.5,492967.95,92872.27,62007.6,5843310.5
+2015-01-02,527160,606716,13018443.16,360225,516376,4180444.76,136956.55,171767.5,438547.85,95424.91,54038.4,5125959.57
+2015-01-03,620519,722115,6798974.140000001,422053,597217,4726386.58,79059.6,202494.5,520275.46,88461.71,63662.1,5738019.93
+2015-01-04,497972,565709,7317803.83,346633,472108,4176705.23,62265.0,163461.0,494413.08,109785.38,50387.4,5104766.03
+2015-01-05,549132,600760,1238946.68,381425,515609,4434649.64,134399.53,180904.5,551381.0,116528.22,108525.3,5526352.49
+2015-01-06,583348,632469,1044297.55,399243,535041,4545400.93,141804.56,191332.5,582377.9,96295.07,114813.59999999999,5671972.45
+2015-01-07,652539,707487,1129551.05,444489,593132,4936292.26,160658.39,213953.5,644392.51,95049.74,128368.2,6178726.66
+2015-01-08,684922,745814,1192503.66,465566,618449,5265567.34,166528.98,224495.5,700301.0,105814.06,134784.0,6597447.71
+2015-01-09,678558,747346,31481605.95,462839,617935,5364663.95,178287.15,223047.5,702513.28,107014.82,133992.6,6709467.82
+2015-01-10,784944,893040,2997340.21,531806,718032,5848345.85,105004.5,256814.5,727038.62,86211.57,154239.0,7177624.24
+2015-01-11,638670,719033,29317837.509999998,437372,579236,5041543.37,81727.8,208853.0,645520.74,114379.83,125560.5,6217547.63
+2015-01-12,600705,648214,1108210.31,411655,544625,4750815.3,139246.75,197350.0,639646.42,114793.68000000001,118583.7,5960500.94
+2015-01-13,680530,734847,1197776.01,463762,609563,5333194.23,161143.07,223341.0,737486.2,114873.15,134216.69999999998,6704211.78
+2015-01-14,671436,724696,1213681.87,458549,599801,5315019.64,159877.85,220233.5,741567.02,121615.4,132495.3,6690748.16
+2015-01-15,685519,740407,1266717.82,468610,610997,5551116.68,164505.54,224531.0,765795.47,127037.18000000001,135074.4,6968020.97
+2015-01-16,724510,795425,1337189.25,495886,657026,5793878.77,182294.11,237942.0,766842.07,127885.06,143144.4,7252079.53
+2015-01-17,724461,829271,1272353.7,492068,670780,5429546.25,98022.74,237432.0,660905.77,80486.1,142801.5,6649147.32
+2015-01-18,651069,743288,1210763.03,441775,597789,4933233.83,83175.17,212574.5,4556644.47,87398.57,127906.5,10000911.64
+2015-01-19,521265,575507,1061181.61,358141,474119,4173942.18,55448.4,170629.5,546351.03,119043.82,102682.5,5168065.61
+2015-01-20,614892,661009,1130027.78,420194,552545,4897308.02,147095.15,201922.0,673797.07,111436.2,121561.2,6153087.45
+2015-01-21,656172,704328,5027694.63,445994,583728,5119621.53,158933.57,214825.0,719206.07,107888.47,129360.9,6449817.09
+2015-01-22,686488,739687,9714102.4,472996,610319,5472036.82,169634.88,225115.5,772773.01,121367.23,135546.0,6896464.4
+2015-01-23,716219,782667,31510961.15,488473,644607,5747005.3,180163.58,235191.5,782603.05,118369.12,141641.69999999998,7204985.66
+2015-01-24,706771,798766,4525308.010000001,473947,638999,5111118.38,94662.09,229349.5,654631.75,68963.73,138087.0,6296796.24
+2015-01-25,619948,694420,2804491.69,423468,560712,4924117.68,80739.21,202821.5,642984.54,107156.74,122210.09999999999,6079997.600000001
+2015-01-26,349439,375606,606276.81,239944,322525,2742463.21,41615.56,114481.0,359144.44,59555.82,69037.8,3386270.73
+2015-01-27,216686,232108,301167.02,137925,188248,1260877.79,72245.3,67598.0,168647.03,10346.94,40624.799999999996,1620325.23
+2015-01-28,579582,621797,1043611.23,393611,514683,4607364.76,141991.18,189352.0,635144.17,97112.89,114000.9,5784928.09
+2015-01-29,656906,705408,1190692.51,447315,582659,5463882.36,159448.3,215066.0,755236.25,111882.08,129534.29999999999,6835041.93
+2015-01-30,734534,800834,1296489.63,499169,657437,5873810.41,185033.0,240694.5,795178.64,111481.01,144946.8,7351182.71
+2015-01-31,790972,898122,5998283.0,534378,716878,5913495.1,105376.0,259091.0,759930.36,77826.85,155951.1,7271657.43

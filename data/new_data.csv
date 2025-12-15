@@ -1,236 +1,32 @@
-Retailer,Retailer ID,Invoice Date,Region,State,City,Product,Price per Unit,Units Sold,Total Sales,Operating Profit,Operating Margin,Sales Method,sales,year,month,day
-Walmart,1128299,2021-08-10,West,Hawaii,Honolulu,Men's Apparel,$70.00 ,525,"$367,500 ","$55,125 ",15%,Outlet,367500,2021,8,10
-Walmart,1128299,2021-08-10,West,Hawaii,Honolulu,Women's Apparel,$75.00 ,350,"$262,500 ","$105,000 ",40%,Outlet,262500,2021,8,10
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Men's Street Footwear,$65.00 ,550,"$357,500 ","$89,375 ",25%,Outlet,357500,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Men's Athletic Footwear,$70.00 ,550,"$385,000 ","$77,000 ",20%,Outlet,385000,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Women's Street Footwear,$65.00 ,375,"$243,750 ","$60,938 ",25%,Outlet,243750,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Women's Athletic Footwear,$65.00 ,325,"$211,250 ","$52,813 ",25%,Outlet,211250,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Men's Apparel,$75.00 ,350,"$262,500 ","$39,375 ",15%,Outlet,262500,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Women's Apparel,$60.00 ,375,"$225,000 ","$90,000 ",40%,Outlet,225000,2021,9,11
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Men's Street Footwear,$55.00 ,475,"$261,250 ","$65,313 ",25%,Outlet,261250,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Men's Athletic Footwear,$65.00 ,475,"$308,750 ","$61,750 ",20%,Outlet,308750,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Women's Street Footwear,$60.00 ,300,"$180,000 ","$45,000 ",25%,Outlet,180000,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Women's Athletic Footwear,$55.00 ,275,"$151,250 ","$37,813 ",25%,Outlet,151250,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Men's Apparel,$65.00 ,250,"$162,500 ","$24,375 ",15%,Outlet,162500,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Women's Apparel,$70.00 ,300,"$210,000 ","$84,000 ",40%,Outlet,210000,2021,10,10
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Street Footwear,$90.00 ,900,"$810,000 ","$243,000 ",30%,In-store,810000,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Athletic Footwear,$95.00 ,750,"$712,500 ","$178,125 ",25%,In-store,712500,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Street Footwear,$95.00 ,700,"$665,000 ","$199,500 ",30%,In-store,665000,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Athletic Footwear,$90.00 ,600,"$540,000 ","$162,000 ",30%,In-store,540000,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Apparel,$95.00 ,650,"$617,500 ","$123,500 ",20%,In-store,617500,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Apparel,$110.00 ,650,"$715,000 ","$321,750 ",45%,In-store,715000,2021,7,16
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Street Footwear,$95.00 ,850,"$807,500 ","$242,250 ",30%,In-store,807500,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Athletic Footwear,$85.00 ,825,"$701,250 ","$175,313 ",25%,In-store,701250,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Street Footwear,$80.00 ,700,"$560,000 ","$168,000 ",30%,In-store,560000,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Athletic Footwear,$80.00 ,475,"$380,000 ","$114,000 ",30%,In-store,380000,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Apparel,$80.00 ,475,"$380,000 ","$76,000 ",20%,In-store,380000,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Apparel,$85.00 ,300,"$255,000 ","$114,750 ",45%,In-store,255000,2021,8,17
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Street Footwear,$60.00 ,500,"$300,000 ","$90,000 ",30%,In-store,300000,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Athletic Footwear,$65.00 ,500,"$325,000 ","$81,250 ",25%,In-store,325000,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Street Footwear,$60.00 ,300,"$180,000 ","$54,000 ",30%,In-store,180000,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Athletic Footwear,$60.00 ,250,"$150,000 ","$45,000 ",30%,In-store,150000,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Apparel,$70.00 ,275,"$192,500 ","$38,500 ",20%,In-store,192500,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Apparel,$55.00 ,300,"$165,000 ","$74,250 ",45%,In-store,165000,2021,9,18
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Street Footwear,$50.00 ,400,"$200,000 ","$60,000 ",30%,In-store,200000,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Athletic Footwear,$65.00 ,575,"$373,750 ","$93,438 ",25%,In-store,373750,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Street Footwear,$60.00 ,400,"$240,000 ","$72,000 ",30%,In-store,240000,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Athletic Footwear,$55.00 ,375,"$206,250 ","$61,875 ",30%,In-store,206250,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Apparel,$65.00 ,350,"$227,500 ","$45,500 ",20%,In-store,227500,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Apparel,$70.00 ,400,"$280,000 ","$126,000 ",45%,In-store,280000,2021,10,17
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Men's Athletic Footwear,$55.00 ,600,"$330,000 ","$115,500 ",35%,Online,330000,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Street Footwear,$50.00 ,525,"$262,500 ","$105,000 ",40%,Online,262500,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Athletic Footwear,$50.00 ,475,"$237,500 ","$95,000 ",40%,Online,237500,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Men's Apparel,$60.00 ,500,"$300,000 ","$105,000 ",35%,Online,300000,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Apparel,$65.00 ,675,"$438,750 ","$219,375 ",50%,Online,438750,2021,7,16
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Street Footwear,$60.00 ,825,"$495,000 ","$198,000 ",40%,Online,495000,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Athletic Footwear,$55.00 ,600,"$330,000 ","$115,500 ",35%,Online,330000,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Street Footwear,$50.00 ,525,"$262,500 ","$105,000 ",40%,Online,262500,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Athletic Footwear,$40.00 ,475,"$190,000 ","$76,000 ",40%,Online,190000,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Apparel,$50.00 ,450,"$225,000 ","$78,750 ",35%,Online,225000,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Apparel,$55.00 ,625,"$343,750 ","$171,875 ",50%,Online,343750,2021,8,17
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Street Footwear,$50.00 ,725,"$362,500 ","$145,000 ",40%,Online,362500,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Athletic Footwear,$45.00 ,525,"$236,250 ","$82,688 ",35%,Online,236250,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Street Footwear,$20.00 ,425,"$85,000 ","$34,000 ",40%,Online,85000,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Athletic Footwear,$20.00 ,400,"$80,000 ","$32,000 ",40%,Online,80000,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Apparel,$30.00 ,400,"$120,000 ","$42,000 ",35%,Online,120000,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Apparel,$35.00 ,500,"$175,000 ","$87,500 ",50%,Online,175000,2021,9,16
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Street Footwear,$35.00 ,675,"$236,250 ","$94,500 ",40%,Online,236250,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Athletic Footwear,$25.00 ,500,"$125,000 ","$43,750 ",35%,Online,125000,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Women's Street Footwear,$25.00 ,375,"$93,750 ","$37,500 ",40%,Online,93750,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Women's Athletic Footwear,$25.00 ,350,"$87,500 ","$35,000 ",40%,Online,87500,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Apparel,$35.00 ,350,"$122,500 ","$42,875 ",35%,Online,122500,2021,10,18
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Street Footwear,$55.00 ,775,"$426,250 ","$170,500 ",40%,Online,426250,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Athletic Footwear,$50.00 ,525,"$262,500 ","$91,875 ",35%,Online,262500,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Street Footwear,$45.00 ,450,"$202,500 ","$81,000 ",40%,Online,202500,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Athletic Footwear,$45.00 ,400,"$180,000 ","$72,000 ",40%,Online,180000,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Apparel,$60.00 ,425,"$255,000 ","$89,250 ",35%,Online,255000,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Apparel,$65.00 ,600,"$390,000 ","$156,000 ",40%,Online,390000,2021,7,19
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Street Footwear,$60.00 ,750,"$450,000 ","$180,000 ",40%,Online,450000,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Athletic Footwear,$55.00 ,525,"$288,750 ","$101,063 ",35%,Online,288750,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Street Footwear,$50.00 ,450,"$225,000 ","$90,000 ",40%,Online,225000,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Athletic Footwear,$40.00 ,400,"$160,000 ","$64,000 ",40%,Online,160000,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Apparel,$50.00 ,375,"$187,500 ","$65,625 ",35%,Online,187500,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Apparel,$55.00 ,550,"$302,500 ","$121,000 ",40%,Online,302500,2021,8,20
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Street Footwear,$50.00 ,650,"$325,000 ","$130,000 ",40%,Online,325000,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Athletic Footwear,$40.00 ,450,"$180,000 ","$63,000 ",35%,Online,180000,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Street Footwear,$15.00 ,350,"$52,500 ","$21,000 ",40%,Online,52500,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Athletic Footwear,$15.00 ,325,"$48,750 ","$19,500 ",40%,Online,48750,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Apparel,$25.00 ,325,"$81,250 ","$28,438 ",35%,Online,81250,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Apparel,$30.00 ,425,"$127,500 ","$51,000 ",40%,Online,127500,2021,9,19
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Street Footwear,$30.00 ,600,"$180,000 ","$72,000 ",40%,Online,180000,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Athletic Footwear,$20.00 ,425,"$85,000 ","$29,750 ",35%,Online,85000,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Women's Street Footwear,$20.00 ,300,"$60,000 ","$24,000 ",40%,Online,60000,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Women's Athletic Footwear,$20.00 ,275,"$55,000 ","$22,000 ",40%,Online,55000,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Apparel,$30.00 ,275,"$82,500 ","$28,875 ",35%,Online,82500,2021,10,21
-Walmart,1128299,2021-08-10,West,Hawaii,Honolulu,Men's Apparel,$69.00 ,147,"$10,143 ","$2,739 ",27%,Online,10143,2021,8,10
-Walmart,1128299,2021-08-10,West,Hawaii,Honolulu,Women's Apparel,$72.00 ,88,"$6,336 ","$3,358 ",53%,Online,6336,2021,8,10
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Men's Street Footwear,$62.00 ,149,"$9,238 ","$3,326 ",36%,Online,9238,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Men's Athletic Footwear,$69.00 ,149,"$10,281 ","$3,393 ",33%,Online,10281,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Women's Street Footwear,$64.00 ,105,"$6,720 ","$2,621 ",39%,Online,6720,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Women's Athletic Footwear,$62.00 ,85,"$5,270 ","$2,108 ",40%,Online,5270,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Men's Apparel,$71.00 ,91,"$6,461 ","$1,938 ",30%,Online,6461,2021,9,11
-Walmart,1128299,2021-09-11,West,Hawaii,Honolulu,Women's Apparel,$56.00 ,105,"$5,880 ","$3,116 ",53%,Online,5880,2021,9,11
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Men's Street Footwear,$52.00 ,124,"$6,448 ","$2,579 ",40%,Online,6448,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Men's Athletic Footwear,$61.00 ,138,"$8,418 ","$2,525 ",30%,Online,8418,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Women's Street Footwear,$56.00 ,87,"$4,872 ","$1,705 ",35%,Online,4872,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Women's Athletic Footwear,$50.00 ,83,"$4,150 ","$1,536 ",37%,Online,4150,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Men's Apparel,$63.00 ,70,"$4,410 ","$1,235 ",28%,Online,4410,2021,10,10
-Walmart,1128299,2021-10-10,West,Hawaii,Honolulu,Women's Apparel,$64.00 ,75,"$4,800 ","$2,448 ",51%,Online,4800,2021,10,10
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Street Footwear,$83.00 ,261,"$21,663 ","$9,532 ",44%,Online,21663,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Athletic Footwear,$88.00 ,225,"$19,800 ","$7,920 ",40%,Online,19800,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Street Footwear,$86.00 ,189,"$16,254 ","$7,152 ",44%,Online,16254,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Athletic Footwear,$82.00 ,180,"$14,760 ","$6,347 ",43%,Online,14760,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Apparel,$89.00 ,195,"$17,355 ","$5,554 ",32%,Online,17355,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Apparel,$101.00 ,163,"$16,463 ","$9,384 ",57%,Online,16463,2021,7,16
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Street Footwear,$87.00 ,213,"$18,531 ","$7,598 ",41%,Online,18531,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Athletic Footwear,$77.00 ,206,"$15,862 ","$5,552 ",35%,Online,15862,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Street Footwear,$78.00 ,189,"$14,742 ","$6,339 ",43%,Online,14742,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Athletic Footwear,$77.00 ,143,"$11,011 ","$4,625 ",42%,Online,11011,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Apparel,$74.00 ,143,"$10,582 ","$3,280 ",31%,Online,10582,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Apparel,$81.00 ,87,"$7,047 ","$4,087 ",58%,Online,7047,2021,8,17
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Street Footwear,$58.00 ,140,"$8,120 ","$3,248 ",40%,Online,8120,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Athletic Footwear,$60.00 ,135,"$8,100 ","$2,997 ",37%,Online,8100,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Street Footwear,$54.00 ,75,"$4,050 ","$1,823 ",45%,Online,4050,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Athletic Footwear,$54.00 ,65,"$3,510 ","$1,544 ",44%,Online,3510,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Apparel,$64.00 ,74,"$4,736 ","$1,468 ",31%,Online,4736,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Apparel,$51.00 ,75,"$3,825 ","$2,104 ",55%,Online,3825,2021,9,18
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Street Footwear,$47.00 ,100,"$4,700 ","$2,068 ",44%,Online,4700,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Athletic Footwear,$59.00 ,144,"$8,496 ","$3,228 ",38%,Online,8496,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Street Footwear,$55.00 ,112,"$6,160 ","$2,526 ",41%,Online,6160,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Athletic Footwear,$51.00 ,113,"$5,763 ","$2,363 ",41%,Online,5763,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Apparel,$59.00 ,98,"$5,782 ","$1,792 ",31%,Online,5782,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Apparel,$65.00 ,104,"$6,760 ","$3,921 ",58%,Online,6760,2021,10,17
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Men's Athletic Footwear,$53.00 ,156,"$8,268 ","$3,721 ",45%,Online,8268,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Street Footwear,$48.00 ,142,"$6,816 ","$3,408 ",50%,Online,6816,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Athletic Footwear,$48.00 ,124,"$5,952 ","$3,155 ",53%,Online,5952,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Men's Apparel,$59.00 ,150,"$8,850 ","$4,248 ",48%,Online,8850,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Apparel,$61.00 ,176,"$10,736 ","$6,549 ",61%,Online,10736,2021,7,16
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Street Footwear,$56.00 ,215,"$12,040 ","$6,502 ",54%,Online,12040,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Athletic Footwear,$50.00 ,168,"$8,400 ","$4,032 ",48%,Online,8400,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Street Footwear,$48.00 ,147,"$7,056 ","$3,669 ",52%,Online,7056,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Athletic Footwear,$39.00 ,128,"$4,992 ","$2,596 ",52%,Online,4992,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Apparel,$46.00 ,122,"$5,612 ","$2,525 ",45%,Online,5612,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Apparel,$53.00 ,169,"$8,957 ","$5,822 ",65%,Online,8957,2021,8,17
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Street Footwear,$47.00 ,203,"$9,541 ","$5,152 ",54%,Online,9541,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Athletic Footwear,$42.00 ,147,"$6,174 ","$2,778 ",45%,Online,6174,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Street Footwear,$19.00 ,123,"$2,337 ","$1,169 ",50%,Online,2337,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Athletic Footwear,$19.00 ,100,"$1,900 ","$1,045 ",55%,Online,1900,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Apparel,$29.00 ,108,"$3,132 ","$1,503 ",48%,Online,3132,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Apparel,$32.00 ,130,"$4,160 ","$2,579 ",62%,Online,4160,2021,9,16
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Street Footwear,$32.00 ,176,"$5,632 ","$3,041 ",54%,Online,5632,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Athletic Footwear,$25.00 ,145,"$3,625 ","$1,631 ",45%,Online,3625,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Women's Street Footwear,$24.00 ,98,"$2,352 ","$1,270 ",54%,Online,2352,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Women's Athletic Footwear,$23.00 ,105,"$2,415 ","$1,208 ",50%,Online,2415,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Apparel,$32.00 ,98,"$3,136 ","$1,568 ",50%,Online,3136,2021,10,18
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Street Footwear,$50.00 ,233,"$11,650 ","$5,825 ",50%,Online,11650,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Athletic Footwear,$47.00 ,147,"$6,909 ","$3,109 ",45%,Online,6909,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Street Footwear,$43.00 ,126,"$5,418 ","$2,763 ",51%,Online,5418,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Athletic Footwear,$41.00 ,116,"$4,756 ","$2,568 ",54%,Online,4756,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Apparel,$55.00 ,119,"$6,545 ","$3,207 ",49%,Online,6545,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Apparel,$63.00 ,150,"$9,450 ","$5,103 ",54%,Online,9450,2021,7,19
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Street Footwear,$55.00 ,210,"$11,550 ","$6,237 ",54%,Online,11550,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Athletic Footwear,$50.00 ,152,"$7,600 ","$3,648 ",48%,Online,7600,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Street Footwear,$47.00 ,126,"$5,922 ","$3,079 ",52%,Online,5922,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Athletic Footwear,$39.00 ,104,"$4,056 ","$2,028 ",50%,Online,4056,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Apparel,$48.00 ,113,"$5,424 ","$2,658 ",49%,Online,5424,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Apparel,$50.00 ,143,"$7,150 ","$3,718 ",52%,Online,7150,2021,8,20
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Street Footwear,$48.00 ,182,"$8,736 ","$4,543 ",52%,Online,8736,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Athletic Footwear,$39.00 ,126,"$4,914 ","$2,359 ",48%,Online,4914,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Street Footwear,$14.00 ,88,"$1,232 ",$641 ,52%,Online,1232,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Athletic Footwear,$14.00 ,88,"$1,232 ",$641 ,52%,Online,1232,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Apparel,$23.00 ,94,"$2,162 ","$1,081 ",50%,Online,2162,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Apparel,$29.00 ,119,"$3,451 ","$1,864 ",54%,Online,3451,2021,9,19
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Street Footwear,$27.00 ,150,"$4,050 ","$2,025 ",50%,Online,4050,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Athletic Footwear,$19.00 ,106,"$2,014 ",$906 ,45%,Online,2014,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Women's Street Footwear,$19.00 ,78,"$1,482 ",$741 ,50%,Online,1482,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Women's Athletic Footwear,$19.00 ,72,"$1,368 ",$725 ,53%,Online,1368,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Apparel,$27.00 ,83,"$2,241 ","$1,053 ",47%,Online,2241,2021,10,21
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Street Footwear,$68.00 ,297,"$20,196 ","$7,473 ",37%,Outlet,20196,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Athletic Footwear,$74.00 ,263,"$19,462 ","$5,449 ",28%,Outlet,19462,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Street Footwear,$72.00 ,238,"$17,136 ","$5,826 ",34%,Outlet,17136,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Athletic Footwear,$59.00 ,186,"$10,974 ","$3,621 ",33%,Outlet,10974,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Men's Apparel,$68.00 ,208,"$14,144 ","$3,112 ",22%,Outlet,14144,2021,7,16
-Walmart,1128299,2021-07-16,Southeast,Florida,Orlando,Women's Apparel,$75.00 ,195,"$14,625 ","$6,874 ",47%,Outlet,14625,2021,7,16
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Street Footwear,$68.00 ,255,"$17,340 ","$6,242 ",36%,Outlet,17340,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Athletic Footwear,$60.00 ,272,"$16,320 ","$4,406 ",27%,Outlet,16320,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Street Footwear,$62.00 ,231,"$14,322 ","$4,726 ",33%,Outlet,14322,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Athletic Footwear,$64.00 ,147,"$9,408 ","$3,105 ",33%,Outlet,9408,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Men's Apparel,$63.00 ,166,"$10,458 ","$2,510 ",24%,Outlet,10458,2021,8,17
-Walmart,1128299,2021-08-17,Southeast,Florida,Orlando,Women's Apparel,$60.00 ,96,"$5,760 ","$2,822 ",49%,Outlet,5760,2021,8,17
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Street Footwear,$44.00 ,155,"$6,820 ","$2,523 ",37%,Outlet,6820,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Athletic Footwear,$45.00 ,150,"$6,750 ","$2,093 ",31%,Outlet,6750,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Street Footwear,$39.00 ,96,"$3,744 ","$1,236 ",33%,Outlet,3744,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Athletic Footwear,$44.00 ,78,"$3,432 ","$1,270 ",37%,Outlet,3432,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Men's Apparel,$54.00 ,94,"$5,076 ","$1,167 ",23%,Outlet,5076,2021,9,18
-Walmart,1128299,2021-09-18,Southeast,Florida,Orlando,Women's Apparel,$42.00 ,99,"$4,158 ","$2,037 ",49%,Outlet,4158,2021,9,18
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Street Footwear,$39.00 ,140,"$5,460 ","$2,020 ",37%,Outlet,5460,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Athletic Footwear,$43.00 ,190,"$8,170 ","$2,369 ",29%,Outlet,8170,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Street Footwear,$43.00 ,128,"$5,504 ","$1,871 ",34%,Outlet,5504,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Athletic Footwear,$40.00 ,120,"$4,800 ","$1,680 ",35%,Outlet,4800,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Men's Apparel,$47.00 ,116,"$5,452 ","$1,199 ",22%,Outlet,5452,2021,10,17
-Walmart,1128299,2021-10-17,Southeast,Florida,Orlando,Women's Apparel,$53.00 ,140,"$7,420 ","$3,858 ",52%,Outlet,7420,2021,10,17
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Men's Athletic Footwear,$42.00 ,192,"$8,064 ","$3,064 ",38%,Outlet,8064,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Street Footwear,$37.00 ,168,"$6,216 ","$2,611 ",42%,Outlet,6216,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Athletic Footwear,$33.00 ,143,"$4,719 ","$2,029 ",43%,Outlet,4719,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Men's Apparel,$46.00 ,150,"$6,900 ","$2,553 ",37%,Outlet,6900,2021,7,16
-Walmart,1185732,2021-07-16,South,Mississippi,Jackson,Women's Apparel,$49.00 ,209,"$10,241 ","$5,428 ",53%,Outlet,10241,2021,7,16
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Street Footwear,$41.00 ,256,"$10,496 ","$4,723 ",45%,Outlet,10496,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Athletic Footwear,$44.00 ,198,"$8,712 ","$3,572 ",41%,Outlet,8712,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Street Footwear,$37.00 ,179,"$6,623 ","$2,914 ",44%,Outlet,6623,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Athletic Footwear,$32.00 ,147,"$4,704 ","$1,976 ",42%,Outlet,4704,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Men's Apparel,$35.00 ,158,"$5,530 ","$2,323 ",42%,Outlet,5530,2021,8,17
-Walmart,1185732,2021-08-17,South,Mississippi,Jackson,Women's Apparel,$42.00 ,206,"$8,652 ","$4,759 ",55%,Outlet,8652,2021,8,17
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Street Footwear,$40.00 ,232,"$9,280 ","$4,083 ",44%,Outlet,9280,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Athletic Footwear,$33.00 ,158,"$5,214 ","$2,138 ",41%,Outlet,5214,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Street Footwear,$15.00 ,145,"$2,175 ","$1,022 ",47%,Outlet,2175,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Athletic Footwear,$16.00 ,120,"$1,920 ",$864 ,45%,Outlet,1920,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Men's Apparel,$22.00 ,132,"$2,904 ","$1,104 ",38%,Outlet,2904,2021,9,16
-Walmart,1185732,2021-09-16,South,Mississippi,Jackson,Women's Apparel,$26.00 ,160,"$4,160 ","$2,330 ",56%,Outlet,4160,2021,9,16
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Street Footwear,$24.00 ,216,"$5,184 ","$2,385 ",46%,Outlet,5184,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Athletic Footwear,$17.00 ,165,"$2,805 ","$1,038 ",37%,Outlet,2805,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Women's Street Footwear,$19.00 ,120,"$2,280 ","$1,072 ",47%,Outlet,2280,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Women's Athletic Footwear,$20.00 ,109,"$2,180 ",$981 ,45%,Outlet,2180,2021,10,18
-Walmart,1185732,2021-10-18,South,Mississippi,Jackson,Men's Apparel,$25.00 ,105,"$2,625 ","$1,103 ",42%,Outlet,2625,2021,10,18
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Street Footwear,$39.00 ,271,"$10,569 ","$4,439 ",42%,Outlet,10569,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Athletic Footwear,$36.00 ,163,"$5,868 ","$2,171 ",37%,Outlet,5868,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Street Footwear,$32.00 ,140,"$4,480 ","$1,971 ",44%,Outlet,4480,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Athletic Footwear,$35.00 ,120,"$4,200 ","$1,806 ",43%,Outlet,4200,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Men's Apparel,$40.00 ,149,"$5,960 ","$2,384 ",40%,Outlet,5960,2021,7,19
-Walmart,1197831,2021-07-19,South,Arkansas,Little Rock,Women's Apparel,$50.00 ,198,"$9,900 ","$4,554 ",46%,Outlet,9900,2021,7,19
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Street Footwear,$43.00 ,233,"$10,019 ","$4,509 ",45%,Outlet,10019,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Athletic Footwear,$42.00 ,163,"$6,846 ","$2,670 ",39%,Outlet,6846,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Street Footwear,$40.00 ,135,"$5,400 ","$2,376 ",44%,Outlet,5400,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Athletic Footwear,$29.00 ,132,"$3,828 ","$1,723 ",45%,Outlet,3828,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Men's Apparel,$40.00 ,113,"$4,520 ","$1,672 ",37%,Outlet,4520,2021,8,20
-Walmart,1197831,2021-08-20,South,Arkansas,Little Rock,Women's Apparel,$40.00 ,193,"$7,720 ","$3,628 ",47%,Outlet,7720,2021,8,20
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Street Footwear,$35.00 ,221,"$7,735 ","$3,326 ",43%,Outlet,7735,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Athletic Footwear,$26.00 ,135,"$3,510 ","$1,439 ",41%,Outlet,3510,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Street Footwear,$11.00 ,123,"$1,353 ",$636 ,47%,Outlet,1353,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Athletic Footwear,$12.00 ,104,"$1,248 ",$524 ,42%,Outlet,1248,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Men's Apparel,$18.00 ,111,"$1,998 ",$779 ,39%,Outlet,1998,2021,9,19
-Walmart,1197831,2021-09-19,South,Arkansas,Little Rock,Women's Apparel,$22.00 ,140,"$3,080 ","$1,294 ",42%,Outlet,3080,2021,9,19
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Street Footwear,$21.00 ,180,"$3,780 ","$1,701 ",45%,Outlet,3780,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Athletic Footwear,$14.00 ,132,"$1,848 ",$739 ,40%,Outlet,1848,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Women's Street Footwear,$16.00 ,99,"$1,584 ",$729 ,46%,Outlet,1584,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Women's Athletic Footwear,$15.00 ,94,"$1,410 ",$635 ,45%,Outlet,1410,2021,10,21
-Walmart,1197831,2021-10-21,South,Arkansas,Little Rock,Men's Apparel,$21.00 ,91,"$1,911 ",$707 ,37%,Outlet,1911,2021,10,21
+date,VendorID,passenger_count,trip_distance,RatecodeID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount
+2016-01-01,539300,618577,1128584.15,361029,507490,4436117.42,93061.52,171397.5,500760.63,91685.24,103395.9,5396416.61
+2016-01-02,483785,555673,958986.49,326970,452995,3889888.11,61811.5,155625.0,458538.0,92194.3,93774.3,4751829.61
+2016-01-03,464533,526158,1031562.6,319347,426305,3956068.27,60418.56,150524.5,503822.97,114390.95,90768.3,4875992.75
+2016-01-04,482423,520911,9585945.41,331103,438204,3859591.95,118121.1,157365.39,518615.1,110105.21,94762.8,4858560.75
+2016-01-05,525169,561079,2650932.03,356639,466383,4119652.88,122104.3,170924.0,569049.43,96658.36,102882.0,5181264.63
+2016-01-06,533312,573090,970680.75,360787,471156,4182273.17,126971.88,173583.0,585116.6,96748.68000000001,104476.2,5269169.53
+2016-01-07,558711,598325,1022487.61,376661,489219,4423762.5,134929.54,181714.5,631613.5,102508.09,109375.22,5583902.55
+2016-01-08,599271,651189,1075213.72,405178,527164,4717297.33,148723.02,195203.0,665025.99,99825.89,117509.51,5943584.74
+2016-01-09,623095,698640,1095549.48,419065,551219,4704358.78,87605.54,202104.22,626284.48,74226.51,121638.29999999999,5816217.83
+2016-01-10,540667,600617,1082454.93,367254,474418,4290484.28,73051.05,175012.35,589251.88,104736.25,105447.9,5337982.91
+2016-01-11,523066,556120,991250.21,355998,459444,4212689.75,126287.66,170623.44,608788.98,114494.0,102710.7,5335594.53
+2016-01-12,563061,600708,1006606.25,380822,487682,4398418.19,132648.5,182895.0,649503.31,102341.49,110134.8,5575940.19
+2016-01-13,605441,643456,1064063.66,407963,521371,4707096.37,145500.77,196727.85,706610.75,108704.55,118437.29999999999,5983075.19
+2016-01-14,606734,646795,1131183.08,411034,522898,4937860.08,143975.04,197318.0,736597.32,123670.13,118850.09999999999,6258252.73
+2016-01-15,613414,663123,1183635.61,418694,534770,5103638.1,150483.58,199631.5,738761.36,133665.85,120283.5,6446463.59
+2016-01-16,632150,711516,1160184.72,426627,562178,4916284.17,89762.52,205076.0,656498.33,90685.47,123465.9,6081771.59
+2016-01-17,583639,655060,1122099.99,393542,514803,4584931.89,80168.93,188718.35,619548.64,101600.82,113651.4,5688618.43
+2016-01-18,527585,573855,1022795.36,356867,462001,4092377.32,53416.13,169962.49,573921.74,123225.71,102342.0,5115224.17
+2016-01-19,590033,627995,1083586.24,400274,511500,4814441.03,135964.78,191677.0,714043.2,124625.41,115435.8,6096168.64
+2016-01-20,584247,623261,1089007.21,396600,503733,4809283.56,138794.74,190167.7,721542.46,125296.35,114515.09999999999,6099594.01
+2016-01-21,610701,650903,3571219.64,414234,526602,5089660.09,147733.71,198899.41,756587.66,126898.78,119798.7,6439562.65
+2016-01-22,641996,690539,1154922.34,436526,559022,5131358.84,157718.6,209065.43,740732.07,115491.45,125943.0,6480308.29
+2016-01-23,119845,132039,216758.16,81050,107443,932088.7,28160.5,38794.0,132060.23,8298.93,23396.399999999998,1162798.76
+2016-01-24,256815,279575,469222.21,167821,216813,1958589.55,23797.0,79471.0,261063.25,41392.56,47885.4,2412178.94
+2016-01-25,437266,464073,929622.36,300017,376797,4215718.33,106614.12,140138.5,590960.6,118518.95,84516.0,5256465.7
+2016-01-26,503878,536519,996586.44,341541,431291,4720514.79,120467.5,163030.0,684747.05,119981.06,98196.9,5906935.7
+2016-01-27,550801,586086,1023140.16,371773,471415,4799183.18,134306.04,178835.5,710996.86,108164.4,107664.9,6039148.88
+2016-01-28,587565,628172,7425062.529999999,397192,502643,5030542.99,143347.85,190797.45,749010.07,122323.47,114904.2,6350926.03
+2016-01-29,632652,683133,1158098.64,428334,547643,5257376.6,159200.72,206083.5,763453.71,118065.51,124086.0,6628250.16
+2016-01-30,667792,750773,1167715.67,448442,586656,5313532.83,94889.37,216846.95,701368.1,76698.38,130474.79999999999,6533808.53
+2016-01-31,553340,615729,1128066.86,376655,486126,4588085.54,74636.02,179808.5,629359.74,112252.37,108328.8,5692468.2700000005

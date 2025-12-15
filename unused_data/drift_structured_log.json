@@ -1,0 +1,442 @@
+{
+  "reference_meta": {
+    "shape": [
+      31,
+      12
+    ],
+    "columns": [
+      "date",
+      "VendorID",
+      "passenger_count",
+      "trip_distance",
+      "payment_type",
+      "fare_amount",
+      "extra",
+      "mta_tax",
+      "tip_amount",
+      "tolls_amount",
+      "improvement_surcharge",
+      "total_amount"
+    ]
+  },
+  "current_meta": {
+    "shape": [
+      31,
+      13
+    ],
+    "columns": [
+      "date",
+      "VendorID",
+      "passenger_count",
+      "trip_distance",
+      "RatecodeID",
+      "payment_type",
+      "fare_amount",
+      "extra",
+      "mta_tax",
+      "tip_amount",
+      "tolls_amount",
+      "improvement_surcharge",
+      "total_amount"
+    ]
+  },
+  "tests": [
+    {
+      "column": "payment_type",
+      "test": "ks",
+      "result": {
+        "statistic": 0.6129032258064516,
+        "p_value": 9.282430294728e-06,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "payment_type",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 96186.51612903224,
+        "wasserstein_distance_norm": 0.933617783116575,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "payment_type",
+      "test": "psi",
+      "result": {
+        "psi": 13.105966828573987,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "extra",
+      "test": "ks",
+      "result": {
+        "statistic": 0.3548387096774194,
+        "p_value": 0.03956122619720958,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "extra",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 16711.23419354839,
+        "wasserstein_distance_norm": 0.397841913635351,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "extra",
+      "test": "psi",
+      "result": {
+        "psi": 9.26739351438993,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "date",
+      "test": "chi2",
+      "result": {
+        "statistic": 3099999969.0,
+        "p_value": 0.0,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 1.0
+    },
+    {
+      "column": "trip_distance",
+      "test": "ks",
+      "result": {
+        "statistic": 0.6129032258064516,
+        "p_value": 9.282430294728e-06,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "trip_distance",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 3899775.1767741935,
+        "wasserstein_distance_norm": 0.44502650917968195,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "trip_distance",
+      "test": "psi",
+      "result": {
+        "psi": 8.713963565059966,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "mta_tax",
+      "test": "ks",
+      "result": {
+        "statistic": 0.5161290322580645,
+        "p_value": 0.0003998585357728985,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "mta_tax",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 29626.015161290317,
+        "wasserstein_distance_norm": 0.774646975087067,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "mta_tax",
+      "test": "psi",
+      "result": {
+        "psi": 9.030931391454665,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "passenger_count",
+      "test": "ks",
+      "result": {
+        "statistic": 0.5483870967741935,
+        "p_value": 0.00012495579242903079,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "passenger_count",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 103664.96774193554,
+        "wasserstein_distance_norm": 0.7925931503425838,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "passenger_count",
+      "test": "psi",
+      "result": {
+        "psi": 5.815366298341871,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "VendorID",
+      "test": "ks",
+      "result": {
+        "statistic": 0.5161290322580645,
+        "p_value": 0.0003998585357728985,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "VendorID",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 85628.90322580647,
+        "wasserstein_distance_norm": 0.7416450380331117,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "VendorID",
+      "test": "psi",
+      "result": {
+        "psi": 9.030931391454665,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "fare_amount",
+      "test": "ks",
+      "result": {
+        "statistic": 0.41935483870967744,
+        "p_value": 0.007945718302533482,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "fare_amount",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 502965.12096774176,
+        "wasserstein_distance_norm": 0.5438456327659213,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "fare_amount",
+      "test": "psi",
+      "result": {
+        "psi": 5.192358077270606,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "tip_amount",
+      "test": "ks",
+      "result": {
+        "statistic": 0.22580645161290322,
+        "p_value": 0.41354510011947465,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "tip_amount",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 151946.8170967741,
+        "wasserstein_distance_norm": 0.21516900815409257,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "tip_amount",
+      "test": "psi",
+      "result": {
+        "psi": 4.50746648371454,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "total_amount",
+      "test": "ks",
+      "result": {
+        "statistic": 0.41935483870967744,
+        "p_value": 0.007945718302533482,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "total_amount",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 710224.472580645,
+        "wasserstein_distance_norm": 0.5271045152426479,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "total_amount",
+      "test": "psi",
+      "result": {
+        "psi": 8.941493045898543,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "tolls_amount",
+      "test": "ks",
+      "result": {
+        "statistic": 0.16129032258064516,
+        "p_value": 0.8234535171851342,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "tolls_amount",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 4523.529032258061,
+        "wasserstein_distance_norm": 0.19398315737223965,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "tolls_amount",
+      "test": "psi",
+      "result": {
+        "psi": 0.6027305227726936,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "improvement_surcharge",
+      "test": "ks",
+      "result": {
+        "statistic": 0.5161290322580645,
+        "p_value": 0.0003998585357728985,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.05,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "improvement_surcharge",
+      "test": "wasserstein",
+      "result": {
+        "wasserstein_distance": 18415.650645161284,
+        "wasserstein_distance_norm": 0.5798793648968527,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.1,
+      "weight": 0.3333333333333333
+    },
+    {
+      "column": "improvement_surcharge",
+      "test": "psi",
+      "result": {
+        "psi": 9.519782094191747,
+        "drift": "True"
+      },
+      "drift_detected": "True",
+      "threshold": 0.2,
+      "weight": 0.3333333333333333
+    }
+  ]
+}

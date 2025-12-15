@@ -22,7 +22,6 @@ root_agent = SequentialAgent(
         eda_agent,
         internet_agent,
         summariser_agent,
-        # next steps agent
     ],
     description="A pipeline that identifies the reason for data drift using metadata and internet sources",
 )
