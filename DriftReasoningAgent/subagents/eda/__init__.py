@@ -1,1 +1,1 @@
-from .agent import eda_agent
+from .agent import create_eda_agent
